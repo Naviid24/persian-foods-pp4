@@ -1,0 +1,86 @@
+[
+    {
+        "model": "blog.post",
+        "pk": null,
+        "fields": {
+            "title": "Sabzi Polo",
+            "slug": "sabzi-polo",
+            "author": 1,
+            "content": "<h1>Sabzi Polo:</h1><p>Sabzi polo is a Persian food that comes with rice, herbs, and fish, typically served with fish or chicken.</p><h2>Ingredients:</h2><ul><li>Basmati rice: 2 cups</li><li>Fresh herbs: 1 cup each of parsley, cilantro, dill, and chives (chopped)</li><li>Turmeric: 1 tsp</li><li>Salt: as it is needed</li><li>Oil: 2 tbsp</li></ul><h2>Instructions:</h2><ol><li>Cook rice: Rinse rice and cook in boiling salted water until 70% done. Drain.</li><li>Prepare herbs: Sauté the chopped herbs in butter/oil for 2-3 minutes.</li><li>Mix: Gently mix the herbs into the partially cooked rice.</li><li>Steam: Place the rice in a pot, cover, and steam for 30 minutes over low heat.</li><li>Serve with fish or any main dish of your choice! Enjoy your flavorful Sabzi Polo!</li></ol>",
+            "created_on": "2023-07-14T13:58:53.884Z",
+            "status": 1,
+            "excerpt": "Sabzi polo is a Persian food that comes with rice, herbs, and fish, typically served with fish or chicken.",
+            "updated_on": "2023-09-13T09:43:19.754Z"
+        }
+    },
+    {
+        "model": "blog.post",
+        "pk": null,
+        "fields": {
+            "title": "Gheymeh (Persian Beef & Split Pea Stew)",
+            "slug": "gheymeh-beef-split-pea-stew",
+            "author": 1,
+            "content": "<h1>Gheymeh (Persian Beef & Split Pea Stew)</h1><p>Gheymeh is a comforting Persian stew made with beef, split peas, tomatoes, and dried limes, served with rice.</p><h2>Ingredients:</h2><ul><li>Beef – 500g (cubed)</li><li>Split peas – ½ cup</li><li>Onion – 1, chopped</li><li>Tomato paste – 2 tbsp</li><li>Dried limes – 2 (pierced)</li><li>Cinnamon – 1 tsp</li><li>Turmeric, salt, pepper – to taste</li><li>Vegetable oil – 2 tbsp</li></ul><h2>Instructions:</h2><ol><li>Sauté Onions – Heat oil and sauté onions until golden.</li><li>Brown Beef – Add beef, turmeric, cinnamon, salt, and pepper; brown the meat.</li><li>Cook Peas – Add split peas, tomato paste, and 4 cups of water. Bring to a boil.</li><li>Simmer – Add dried limes and let simmer for 1-1.5 hours until meat and peas are tender.</li><li>Serve – Enjoy with basmati rice for a rich, tangy, and hearty meal! 🍛✨</li></ol>",
+            "created_on": "2023-07-14T13:58:53.884Z",
+            "status": 1,
+            "excerpt": "Gheymeh is a comforting Persian stew made with beef, split peas, tomatoes, and dried limes, served with rice.",
+            "updated_on": "2023-09-13T09:43:19.754Z"
+        }
+    },
+    {
+        "model": "blog.post",
+        "pk": null,
+        "fields": {
+            "title": "Tahchin (Persian Baked Saffron Rice)",
+            "slug": "tahchin-persian-baked-saffron-rice",
+            "author": 1,
+            "content": "<h1>Tahchin (Persian Baked Saffron Rice)</h1><p>Tahchin is a delicious Persian rice dish made with saffron, yogurt, eggs, and chicken, forming a golden, crispy crust with a soft, flavorful interior.</p><h2>Ingredients:</h2><ul><li>Basmati rice – 2 cups (parboiled, 70% cooked)</li><li>Chicken – 2 breasts (cooked & shredded)</li><li>Yogurt – 1 cup</li><li>Eggs – 2</li><li>Saffron – a pinch (dissolved in warm water)</li><li>Turmeric – 1 tsp</li><li>Salt & pepper – to taste</li><li>Onion – 1 (sautéed)</li><li>Butter/oil – for greasing & drizzling</li><li>Garnish (optional) – pistachios, almonds, barberries</li></ul><h2>Instructions:</h2><ol><li>Prepare the Rice – Rinse and cook rice until 70% done, then drain.</li><li>Cook the Chicken – Shred after cooking.</li><li>Mix Ingredients – Whisk yogurt, eggs, saffron, turmeric, salt, pepper, and sautéed onions. Add rice and chicken, mixing well.</li><li>Assemble – Grease a baking dish, press the mixture in evenly, and drizzle with butter/oil.</li><li>Bake – Preheat oven to 350°F (175°C) and bake for 60-70 minutes until golden and crispy.</li><li>Serve – Flip onto a platter and garnish with saffron, pistachios, almonds, and barberries.</li></ol><p>Enjoy your crispy, aromatic Tahchin with a side of yogurt or salad! 🍚✨</p>",
+            "created_on": "2023-07-14T13:58:53.884Z",
+            "status": 1,
+            "excerpt": "Tahchin is a delicious Persian rice dish made with saffron, yogurt, eggs, and chicken, forming a golden, crispy crust with a soft, flavorful interior.",
+            "updated_on": "2023-09-13T09:43:19.754Z"
+        }
+    },
+    {
+        "model": "blog.post",
+        "pk": null,
+        "fields": {
+            "title": "Koobideh Kebab (Persian Grilled Kebab)",
+            "slug": "koobideh-kebab-persian-grilled-kebab",
+            "author": 1,
+            "content": "<h1>Koobideh Kebab (Persian Grilled Kebab)</h1><p>Koobideh Kebab is a popular Persian dish made from seasoned ground meat, grilled on skewers to perfection. It’s juicy, flavorful, and best served with basmati rice, grilled vegetables, and yogurt.</p><h2>Ingredients:</h2><h3>For the Kebab:</h3><ul><li>500g ground beef or lamb (or a mix)</li><li>1 large onion, grated (excess moisture removed)</li><li>2 cloves garlic, minced (optional)</li><li>1 tsp turmeric</li><li>½ tsp black pepper</li><li>½ tsp cumin (optional)</li><li>Salt to taste</li><li>Pinch of saffron in 2 tbsp warm water (optional)</li><li>Oil for brushing</li><li>Sumac for garnish (optional)</li></ul><h2>Instructions:</h2><ol><li><strong>Prepare the Kebab Mixture:</strong> Mix ground meat, grated onion, garlic, and spices in a bowl. Knead for 5-10 minutes until sticky. Chill for 30 minutes to firm up.</li><li><strong>Shape the Kebab:</strong> Lightly oil metal skewers or soak wooden ones. Take a handful of the meat mixture and mold it into a long, even shape around the skewer. Press tightly to prevent breaking.</li><li><strong>Grill the Koobideh:</strong> Preheat a grill or stovetop grill pan to medium-high heat. Grill for 5-7 minutes per side, brushing with oil or butter for extra flavor.</li><li><strong>Serve:</strong> Remove from skewers, garnish with sumac, and serve with rice, grilled vegetables, and yogurt.</li></ol><h3>Tips:</h3><ul><li>Use meat with some fat (80% lean) for juicier kebabs and ensure the grill is hot before cooking.</li></ul><p>Enjoy this Persian favorite with family and friends! 🍢🔥</p>",
+            "created_on": "2023-07-14T13:58:53.884Z",
+            "status": 1,
+            "excerpt": "Koobideh Kebab is a popular Persian dish made from seasoned ground meat, grilled on skewers to perfection. It’s juicy, flavorful, and best served with basmati rice, grilled vegetables, and yogurt.",
+            "updated_on": "2023-09-13T09:43:19.754Z"
+        }
+    },
+    {
+        "model": "blog.post",
+        "pk": null,
+        "fields": {
+            "title": "Zereshk Polo ba Morgh (Persian Barberry Rice with Chicken)",
+            "slug": "zereshk-polo-ba-morgh-persian-barberry-rice-with-chicken",
+            "author": 1,
+            "content": "<h1>Zereshk Polo ba Morgh (Persian Barberry Rice with Chicken)</h1><h2>Ingredients:</h2><h3>For the Chicken:</h3><ul><li>4 pieces chicken (drumsticks or thighs)</li><li>1 large onion, sliced</li><li>2 cloves garlic, minced</li><li>1 tsp turmeric</li><li>Salt & pepper to taste</li><li>A pinch of saffron (dissolved in 2 tbsp warm water)</li><li>2 tbsp lemon juice</li><li>Vegetable oil for frying</li></ul><h3>For the Rice:</h3><ul><li>2 cups basmati rice</li><li>½ cup barberries (zereshk)</li><li>2 tbsp butter</li><li>A pinch of saffron (dissolved in 2 tbsp warm water)</li><li>Salt to taste</li><li>1 tsp sugar (optional)</li></ul><h2>Instructions:</h2><ol><li><strong>Cook the Chicken:</strong> Marinate chicken with turmeric, salt, pepper, lemon juice, and saffron water for 30 minutes. Sauté onions in oil until golden, add chicken, and brown on both sides. Add 1 cup water, cover, and simmer for 30-40 minutes until tender.</li><li><strong>Prepare the Rice:</strong> Rinse rice until water runs clear. Boil water with salt, add rice, and cook until 70% done. Drain. In a non-stick pot, add butter, layer rice, and steam on low heat for 20-30 minutes to form a crispy tahdig.</li><li><strong>Prepare the Zereshk:</strong> Sauté barberries in butter for 2-3 minutes, adding sugar if desired.</li><li><strong>Serve:</strong> Mix barberries into the rice or use as a garnish. Serve with chicken and a side of yogurt or Shirazi salad.</li></ol><p>Enjoy this flavorful Persian dish! 🍛</p>",
+            "created_on": "2023-07-14T13:58:53.884Z",
+            "status": 1,
+            "excerpt": "Zereshk Polo ba Morgh is a delicious Persian dish featuring saffron-infused rice with tangy barberries and tender chicken, perfect for a flavorful meal.",
+            "updated_on": "2023-09-13T09:43:19.754Z"
+        }
+    },
+    {
+        "model": "blog.post",
+        "pk": null,
+        "fields": {
+            "title": "Ghorme Sabzi (Persian Herb Stew)",
+            "slug": "ghorme-sabzi-persian-herb-stew",
+            "author": 1,
+            "content": "<h1>Ghorme Sabzi (Persian Herb Stew)</h1><p>Ghorme Sabzi is a classic Persian stew known for its deep, aromatic flavors. It combines slow-cooked meat, a medley of fresh herbs, and dried limes for a tangy kick. Served with steamed basmati rice, this dish is a staple of Persian cuisine, loved for its rich taste and comforting warmth.</p><h2>Ingredients:</h2><h3>For the Stew:</h3><ul><li>500g lamb or beef (cubed)</li><li>1 large onion, chopped</li><li>3-4 cloves garlic, minced</li><li>2 dried limes (or ¼ cup fresh lime juice)</li><li>1 cup cooked/canned kidney beans (optional)</li><li>4-5 cups water or broth</li></ul><h2>Instructions:</h2><h3>Simmer Stew:</h3><ol><li>Add sautéed herbs to the pot.</li><li>Pierce dried limes and add them (or use fresh lime juice later).</li><li>Pour in water/broth to cover, bring to a boil, then simmer for 1.5-2 hours.</li></ol><h3>Final Touch:</h3><ol><li>Add kidney beans (if using) 30 minutes before serving.</li><li>Adjust seasoning and add fresh lime juice if needed.</li></ol><h2>Serve:</h2><p>Enjoy hot with steamed basmati rice.</p>",
+            "created_on": "2023-07-14T13:58:53.884Z",
+            "status": 1,
+            "excerpt": "Ghorme Sabzi is a rich, aromatic Persian stew with slow-cooked meat, fresh herbs, and a tangy kick from dried limes. It's the perfect dish for a comforting meal.",
+            "updated_on": "2023-09-13T09:43:19.754Z"
+        }
+    }
+]
