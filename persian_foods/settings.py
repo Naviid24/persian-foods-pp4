@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-naviid24-persianfoodspp-xsqlbele5u0.ws-eu117.gitpod.io' ,
+    '127.0.0.1',
     '.herokuapp.com'
     ]
 
@@ -97,7 +97,7 @@ DATABASES = {
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeinstitute-ide.net/",
     "https://*.herokuapp.com",
-    "https://8000-naviid24-persianfoodspp-xsqlbele5u0.ws-eu117.gitpod.io"
+    "https://localhost"
 ]
 
 
