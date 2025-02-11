@@ -19,15 +19,17 @@
             <!-- Blog entries-->
             <div class="col-lg-8">
                 <!-- Featured blog post-->
+                {% if post_list %}
                 <div class="card mb-4">
-                    <a href="#!"><img class="card-img-top" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="food" /></a>
+                    <a href="#!"><img class="card-img-top" src="static/images/koobideh.png" alt="food" /></a>
                     <div class="card-body">
                         <div class="small text-muted">{{ post.created_on }}</div>
                         <h2 class="card-title">{{ post.title }}</h2>
                         <p class="card-text">{{ post.excerpt }}</p>
-                        <a class="btn btn-primary" href="?page={{ page_obj.previous_page_number }}">Read more →</a>
+                        <a class="btn btn-primary" href="#!">Read more →</a>
                     </div>
                 </div>
+                {% endif %}
                 <!-- Nested row for non-featured blog posts-->
                 <div class="row">
                     {% for post in post_list %}
@@ -38,7 +40,7 @@
                                     <div class="small text-muted">{{ post.created_on }}</div>
                                     <h2 class="card-title h4">{{ post.title }}</h2>
                                     <p class="card-text">{{ post.excerpt }}</p>
-                                    <a class="btn btn-primary" href="?page={{ page_obj.previous_page_number }}">Read more →</a>
+                                    <a class="btn btn-primary" href="#!">Read more →</a>
                                 </div>
                             </div>
                         </div>
@@ -48,6 +50,23 @@
                         {% endif %}
                     {% endfor %}
                 </div>
+                <!-- Pagination -->
+                {% if page_obj.has_other_pages %}
+                <ul class="pagination justify-content-center">
+                    {% if page_obj.has_previous %}
+                    <li>
+                        <a href="?page={{ page_obj.previous_page_number }}"
+                          class="page-link">&laquo; PREV</a>
+                    </li>
+                    {% endif %}
+                    {% if page_obj.has_next %}
+                    <li>
+                        <a href="?page={{ page_obj.next_page_number }}"
+                          class="page-link">NEXT &raquo;</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            {% endif %}
             </div>
             <!-- Side widgets-->
             <div class="col-lg-4">
@@ -84,4 +103,5 @@
             </div>
         </div>
     </div>
+
 {% endblock %}
