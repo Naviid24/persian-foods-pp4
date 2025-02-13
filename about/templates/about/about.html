@@ -3,10 +3,10 @@
 {% load static %}
 <div class="container mt-5">
   <div class="row">
-    <div class="col-8 ">
-      <img src="{% static 'images/koobideh-about.jpg' %}" width="75%" />
+    <div class="col-lg-8">
+      <img src="{% static 'images/koobideh-about.jpg' %}" width="100%" />
     </div>
-    <div class="col-4">
+    <div class="col-lg-4">
       <!-- Title goes between these h2 tags -->
       <h2>{{ about.title }}</h2>
       <!-- Content goes directly underneath this -->
@@ -14,10 +14,10 @@
     </div>
   </div>
   <div class="row">
-    <div class="col text-right">
+    <div class="col text-end">
       <!-- Updated on field goes in here -->
 
-      <p class="text-end"><em>Updated on: {{ about.updated_on }}</em></p>
+      <p class="text-muted"><em>Updated on: {{ about.updated_on }}</em></p>
     </div>
   </div>
 </div>
