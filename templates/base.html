@@ -20,7 +20,7 @@
         <!-- Custom CSS -->
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     </head>
-    <body>
+    <body class="d-flex flex-column min-vh-100">
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
@@ -43,7 +43,7 @@
             {% endblock content %}
 
          <!-- Footer-->
-         <footer class="py-5 bg-dark">
+         <footer class="py-5 bg-dark mt-auto">
             <div class="container">
                 <p class="m-0 text-center text-white">
                     {% block Copyright %}
