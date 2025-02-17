@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+
+
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
@@ -29,14 +31,18 @@ class Post(models.Model):
     
     def __str__(self):
         return self.title
+    
+    def total_likes(self):
+        return self.likes.count()
 
 
 #............... Comment model...............
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="commenter")
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
 
     def __str__(self):
         return f"Comment by {self.user.username} on {self.post.title}"
@@ -46,7 +52,9 @@ class Comment(models.Model):
 class Like(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="likes")
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="liker")
-    created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('post', 'user') # Prevents duplicate likes from the same user
 
     def __str__(self):
         return f"{self.user.username} liked {self.post.title}"
