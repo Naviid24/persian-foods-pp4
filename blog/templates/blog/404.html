@@ -1,9 +1,11 @@
-<!-- 404 html template-->>
-{% extende 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+
 {% load static %}
+
+{% block content %}
 <div class="container">
-    <div class="row">
-        <div class="col-md-8">
+    <div class="row d-flex justify-content-center align-items-center" style="height: 100%;">
+        <div class="col-md-8 text-center">
             <h1>&#128533;</h1>
             <h1>Oops! Page not found</h1>
             <p>We couldn't find the page you were looking for.</p>
@@ -11,5 +13,4 @@
         </div>
     </div>
 </div>
-
 {% endblock %}
