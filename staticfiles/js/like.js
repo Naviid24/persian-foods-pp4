@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".like-button").forEach(function (button) {
         button.addEventListener("click", function () {

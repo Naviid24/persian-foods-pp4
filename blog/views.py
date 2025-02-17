@@ -36,6 +36,12 @@ def post_detail(request, slug):
     comments = post.comments.all().order_by("created_on")
     comment_count = post.comments.filter(approved=True).count()
 
+    if request.user.is_authenticated:
+        user_likes = Like.objects.filter(post=post, user=request.user).exists()
+    else:
+        user_likes = False
+
+
     if request.method == "POST":
         print("Received a POST request")
         comment_form = CommentForm(data=request.POST)
@@ -77,8 +83,13 @@ def custom_404(request, exception):
 
 @login_required
 def like_post(request, post_id):
+
+    if not request.user.is_authenticated:
+        return JsonResponse({"error": "You must be logged in to like a post."}, status=403)
+
     post = get_object_or_404(Post, id=post_id)
     like, created = Like.objects.get_or_create(post=post, user=request.user)
+    
 
     if not created:
         like.delete()  # If like exists, unlike the post
@@ -86,7 +97,8 @@ def like_post(request, post_id):
     else:
         liked = True
 
-    return JsonResponse({"liked": liked, "total_likes": post.total_likes()})
+    return JsonResponse({"liked": liked, "total_likes": post.likes.count()})
+
 
 
 def comment_edit(request, slug, comment_id):
