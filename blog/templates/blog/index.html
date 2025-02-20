@@ -22,7 +22,15 @@
                     {% for post in post_list %}
                         <div class="col-md-6">
                             <div class="card mb-4">
-                                <a href="{% url 'post_detail' post.slug %}"><img class="card-img-top" src="{% static 'images/gheymeh.png' %}" alt="..." /></a>
+                                <a href="{% url 'post_detail' post.slug %}">  
+                                    {% if "placeholder" in post.featured_image.url %}
+                                    <img class="card-img-top" src="{% static 'images/gheymeh.png' %}"
+                                      alt="placeholder image">
+                                    {% else %}
+                                    <img class="card-img-top" src=" {{ post.featured_image.url }}"
+                                      alt="{{ post.title }}">
+                                    {% endif %}
+                                </a>
                                 <div class="card-body">
                                     <div class="small text-muted mb-2">{{ post.created_on }}</div>
                                     <h2 class="card-title h4">{{ post.title }}</h2>

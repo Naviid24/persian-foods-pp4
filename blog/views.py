@@ -3,7 +3,6 @@ from django.http import JsonResponse, HttpResponseRedirect
 from django.views import generic
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-
 from .models import Post, Like, Comment
 from .forms import CommentForm
 
@@ -12,7 +11,7 @@ class PostList(generic.ListView):
     """View to list published blog posts with pagination."""
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "blog/index.html"
-    paginate_by = 6  # Controls pagination
+    paginate_by = 4  # Controls pagination
 
 
 def post_detail(request, slug):
