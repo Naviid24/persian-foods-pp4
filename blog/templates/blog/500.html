@@ -7,9 +7,10 @@
     <div class="row d-flex justify-content-center align-items-center" style="height: 100%;">
         <div class="col-md-8 text-center">
             <h1>&#128533;</h1>
-            <h1>Oops! Page not found</h1>
-            <p>We couldn't find the page you were looking for.</p>
-            <a class="btn btn-primary" href="{% url 'home' %}" >Back to Home</a>
+            <h1>Oops! Something went wrong</h1>
+            <p>You might have this error page because you haven't signed in yet, please sign in and try again.</p>
+            <a class="btn btn-primary" href="{% url 'account_signup' %}" >Sign Up</a>
+            <p>or</p>
         </div>
     </div>
 </div>
