@@ -58,11 +58,11 @@
                 </div>
             </div>
         </div>
-        <div class="flex-shrink-0">
+        <div class="flex-shrink-0 ">
             {% if user.is_authenticated %}
-            <p class="text-end m-3">You are logged in as {{ user }}</p>
+            <p class="text-end m-3 " style="color: rgb(12, 128, 89);" >You are logged in as {{ user }}</p>
             {% else %}
-            <p class="text-end m-3">You are not logged in</p>
+            <p class="text-end m-3" style="color: rgb(236, 59, 50);" >You are not logged in</p>
             {% endif %}
         </div>
 
@@ -73,6 +73,12 @@
          <!-- Footer-->
          <footer class="py-5 bg-dark mt-auto">
             <div class="container">
+                <p class="m-0 text-center text-white">
+                    Created by Navid Bahadorani
+                </p>
+                <p class="m-0 text-center text-white">
+                    For educational purposes only
+                </p>
                 <p class="m-0 text-center text-white">
                     {% block Copyright %}
                 Copyright &copy; Persian Foods 2025
