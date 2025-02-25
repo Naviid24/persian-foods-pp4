@@ -278,13 +278,11 @@ Each Milestone covers the user stories for small features allowing me to priorit
 - A clear message is displayed on the pages for user to know whether he needs to sign-in or sign-up to explore the recipe website and to like, comment and post the recipes.
 - A success message is displayed to user based on his actions for sign-in, sign-up and sign-out.
 
-#### Edit Post
+#### Edit Comments
 
 - As a logged-in User, I can edit the Posts that I have shared so that I can correct and update the recipe details if necessary. **(User Story#9) (must have)**
 
-![edit-recipe-button](documentation/docs_images/edit-button-view.png)
-
-![edit-recipe-page-view](documentation/docs_images/edit-recipe-page-view.png)
+![edit-post](documentation/doc-images/edit-comment.png)
 
 - CRUD Functionality - the feature of edit in recipe details page is only visible and accessible to the logged-in users and only if the user is the author of the recipe.
 - On clicking the edit button user is directed to the Edit recipe form/page where user can update / edit recipe for any changes and can either save as draft or publish it. On successful update of the recipe, user is displayed with success message and directed to Recipes Page.
@@ -294,6 +292,7 @@ Each Milestone covers the user stories for small features allowing me to priorit
 
 - As a logged-in User, I can delete my recipes so that they are no longer published on the site. **(User Story#10) (must have)**
 
+![delete-post](documentation/doc-images/delete-comment.png)
 
 - CRUD Functionality - the feature of delete in recipe details page is only visible and accessible to the logged-in users and only if the user is the author of the recipe.
 - User is directed to confirm delete page where user can either delete the recipe or cancel. 
