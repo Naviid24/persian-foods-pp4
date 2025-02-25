@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.conf.urls import handler404, handler500
+from django.conf.urls import handler404
 
 
 urlpatterns = [
@@ -30,6 +30,3 @@ urlpatterns = [
 
 #404 handeler
 handler404 = 'blog.views.custom_404'
-
-#500 handeler
-handler500 = 'blog.views.custom_500'
