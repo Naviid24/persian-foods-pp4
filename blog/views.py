@@ -5,11 +5,16 @@ from django.contrib import messages
 from .models import Post, Like, Comment
 from .forms import CommentForm, PostForm
 from django.views.generic import (
-    TemplateView, CreateView, UpdateView, ListView
+    TemplateView,
+    CreateView,
+    UpdateView,
+    ListView,
+    DeleteView
 )
 from django.db.models import Q
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
 
 
 class IndexView(TemplateView):
@@ -26,6 +31,7 @@ class PostList(generic.ListView):
     paginate_by = 4  # Controls pagination
 
 
+@login_required
 def post_detail(request, slug):
     """
     Display an individual blog post with comments.
@@ -76,6 +82,7 @@ def custom_404(request, exception):
     return render(request, 'blog/404.html', status=404)
 
 
+@login_required
 def like_post(request, post_id):
     """
     Handles liking and unliking of a post via AJAX.
@@ -95,6 +102,7 @@ def like_post(request, post_id):
     return JsonResponse({"liked": liked, "total_likes": post.likes.count()})
 
 
+@login_required
 def comment_edit(request, slug, comment_id):
     """
     Handles editing of a user's comment.
@@ -124,6 +132,7 @@ def comment_edit(request, slug, comment_id):
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
+@login_required
 def comment_delete(request, slug, comment_id):
     """
     Handles deletion of a user's comment.
@@ -158,7 +167,6 @@ class AddPost(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('posts_list')
 
     # Source: https://stackoverflow.com/questions/67366138/django-display-message-after-creating-a-post # noqa
-    # Source: https://stackoverflow.com/questions/67366138/django-display-message-after-creating-a-post # noqa
     def form_valid(self, form):
         form.instance.author = self.request.user
         success_message = "Your post has been posted successfully."
@@ -188,6 +196,22 @@ class UpdatePost(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         success_message = "Your post has been updated successfully."
         messages.add_message(self.request, messages.SUCCESS, success_message)
         return super().form_valid(form)
+
+
+class DeletePost(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    """
+    Class base view to delete a post.
+    To make sure user is the author of the post,
+    and make sure user is authenticated to view,
+    the delete button
+    """
+
+    model = Post
+    success_url = reverse_lazy('posts_list')
+    
+    def test_func(self):
+        return self.request.user == self.get_object().author
+
 
 
 class UserDrafts(ListView):
@@ -232,3 +256,5 @@ class PostSearchList(ListView):
         else:
             queryset = Post.objects.none()
         return queryset
+
+
