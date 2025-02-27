@@ -1,101 +1,30 @@
-{% extends "base.html" %}  {% block content %}
-{% load static %}
+{% extends "base.html" %} 
+{% load static %} 
 
-    <!-- Page header with logo and tagline-->
-    <header class="py-5 bg-light border-bottom mb-4">
-        <div class="container">
-            <div class="text-center my-5">
-                <h1 class="fw-bolder">Welcome to Persian Foods Blog!</h1>
-                <p class="lead mb-0">
-                    "Discover the flavors of Persian cuisine with authentic 
-                    recipes and cooking tips, bringing Iranian dishes to your table!"
-                </p>
-            </div>
-        </div>
-    </header>
-    <!-- Page content-->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <!-- blog posts-->
-                <div class="row">
-                    {% for post in post_list %}
-                        <div class="col-md-6">
-                            <div class="card mb-4">
-                                <a href="{% url 'post_detail' post.slug %}">  
-                                    {% if "placeholder" in post.featured_image.url %}
-                                    <img class="card-img-top img-fluid" style="height: 300px; object-fit: cover;" src="{% static 'images/gheymeh.png' %}"
-                                      alt="placeholder image">
-                                    {% else %}
-                                    <img class="card-img-top" style="height: 300px; object-fit: cover;" src=" {{ post.featured_image.url }}"
-                                      alt="{{ post.title }}">
-                                    {% endif %}
-                                </a>
-                                <div class="card-body">
-                                    <div class="small text-muted mb-2">{{ post.created_on }}</div>
-                                    <h2 class="card-title h4">{{ post.title }}</h2>
-                                    <p class="card-text">{{ post.excerpt }}</p>
-                                    <a class="btn btn-primary" href="{% url 'post_detail' post.slug %}">Read more →</a>
-                                </div>
-                            </div>
-                        </div>
-                        {% if forloop.counter|divisibleby:2 and not forloop.last %}
-                            </div><div class="row">
-                        {% endif %}
-                    {% endfor %}
-                </div>
-                <!-- Pagination -->
-                {% if page_obj.has_other_pages %}
-                <ul class="pagination justify-content-center">
-                    {% if page_obj.has_previous %}
-                    <li>
-                        <a href="?page={{ page_obj.previous_page_number }}"
-                          class="page-link">&laquo; PREV</a>
-                    </li>
+
+{% block content %}
+
+<!-- Hero image and about section -->
+<div class="image-background">
+    <div class="container h-100 justify-content-center">
+        <div class="row h-100 align-items-center">
+            <div class="col-12 text-center">
+                <div class="with-shadow">
+                    <h1 class="display-welcome">Welcome to Persian Foods</h1>
+                    <p class="content-welcome">Here, flavour meets creativity in every bite!!</p>  
+                    <p class="content-welcome">"Join us on a journey through the heart of Persian 
+                        cuisine! Share your creations, swap cooking secrets, and experience the magic 
+                        of saffron, pomegranates, and fragrant herbs. Let’s cook something truly delicious 
+                        together!"
+                    <p>Would you like a more poetic or modern version? 😊</p>
+                        {% if not user.is_authenticated %}Join us now.
+                    </p>
+                    <a href="{% url 'account_signup' %}" class="btn btn-dark mb-2">Signup Now</a>
                     {% endif %}
-                    {% if page_obj.has_next %}
-                    <li>
-                        <a href="?page={{ page_obj.next_page_number }}"
-                          class="page-link">NEXT &raquo;</a>
-                    </li>
-                    {% endif %}
-                </ul>
-            {% endif %}
-            </div>
-            <!-- Side widgets-->
-            <div class="col-lg-4">
-                <!-- Search widget-->
-                <div class="card mb-4">
-                    <div class="card-header">Search</div>
-                    <div class="card-body">
-                        <div class="input-group">
-                            <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                            <button class="btn btn-primary" id="button-search" type="button">Go!</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Categories widget-->
-                <div class="card mb-4">
-                    <div class="card-header">Categories</div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <ul class="list-unstyled mb-0">
-                                    <li class="mb-1"><a href="#!" >Vegetarian</a></li>
-                                    <li class="mb-1"><a href="#!">With Chicken</a></li>
-                                    <li class="mb-1"><a href="#!">With Meat</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Side widget-->
-                <div class="card mb-4">
-                    <div class="card-header">Side Widget</div>
-                    <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 {% endblock %}

@@ -1,11 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.template.defaultfilters import slugify
 
-STATUS = (
-    (0, "Draft"),
-    (1, "Published"),
-)
+
+
+STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Category(models.Model):
@@ -28,11 +28,16 @@ class Post(models.Model):
         Category, on_delete=models.SET_NULL, null=True, blank=True
     )
     content = models.TextField()
+    ingredients = models.TextField(blank=False, default="ingredients")
+    instructions = models.TextField(blank=False, default="ingredients")
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.CharField(max_length=300, blank=True)
     featured_image = CloudinaryField("image", default="placeholder")
+
+    class Meta:
+        ordering = ['-created_on']
 
     def __str__(self):
         return self.title
@@ -40,6 +45,14 @@ class Post(models.Model):
     def total_likes(self):
         """Returns the total number of likes for the post."""
         return self.likes.count()
+    
+    def save(self, *args, **kwargs):
+        """
+        A method to generate slug for posts submitted 
+        by user through the site form
+        """
+        self.slug = slugify(self.title)
+        super(Post, self).save(*args, **kwargs)
 
 
 class Comment(models.Model):

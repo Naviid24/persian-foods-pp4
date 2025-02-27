@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Persian Foods {% endblock %}
+
+{% block content %}
+<!-- Draft Recipe view, only visible to logged in users -->
+<div class="container text-center justify-content-center mt-4 mb-5">
+    <h1 class="display-5 mb-5">My Draft Posts</h1>
+    <p>Hi, <strong>{{request.user}}</strong>!! You can see your posts saved as draft here.</p>
+    <p>Your draft posts are only visible to you. You can update and save or publish them as you like.</p>
+    <p>Craft happiness out of every food. Enjoy!!!</p>
+</div>
+<!-- Display message if no user draft recipes are present -->
+{% if post_drafts|length == 0 %}
+<div class="container-fluid text-center mt-5">
+    <p>Looks like you have no post saved as draft.</p>
+    <p>You can create your post and save for later to edit on this page.</p>     
+</div>
+{% endif %}
+<!-- Draft Recipe List View -->
+<div class="container justify-content-center">
+    <div class="row mb-5 mt-5"> 
+        {% for post in post_drafts %}
+        <div class="col-lg-4 col-md-6 col-12 mb-5 mx-auto">
+            <div class="card h-100">
+                {% if "placeholder" in post.featured_image.url %}
+                <img class="card-image-top recipe-image cards" src="https://res.cloudinary.com/dtnfhjoal/image/upload/v1740577476/hqemqrdlzza8ydsph8tv.jpg" alt="a variety of food dishes on table">
+                {% else %}
+                <img class="card-image-top recipe-image cards" src="{{ post.featured_image.url }}" alt="post image of food">
+                {% endif %}
+                <div class="card-body">
+                    <p class="card-text text-muted"> {{ post.created_on}} | {{ post.get_status_display }}</p>
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text card-content">{{ post.content | truncatechars:90 }}</p>
+                    <hr>
+                    {% if user.is_authenticated %}
+                    {% if user.id == post.author.id %}
+                    <div class="mb-3">
+                    <a href="{% url 'update_post' post.slug %}" class="btn btn-primary">Update Post</a>
+                    </div>
+                    {% endif %} 
+                    {% endif %}
+                </div> 
+            </div>
+        </div>
+        {% endfor %}               
+    </div>
+    
+    <!-- Pagination to display 6 recipes per page -->
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li>
+                <a href="?page={{ page_obj.previous_page_number }}" class="page-link" aria-label="Previous">&laquo; PREV</a>
+            </li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li>
+                <a href="?page={{ page_obj.next_page_number }}" class="page-link" aria-label="Next">NEXT &raquo;</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+
+{% endblock content %}
+    
+    
+    

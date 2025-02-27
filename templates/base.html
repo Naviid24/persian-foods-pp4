@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Persian foods</title>
+        <title> {% block title %} Persian Foods {% endblock %} </title> 
         <!-- Favicon-->
         <link rel="icon" type="image/icon" href="{% static 'images/pf-icon.jpg' %}">
         <!-- Font Awesome CSS -->
@@ -21,6 +21,8 @@
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <!-- Custom CSS -->
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 
     </head>
     <body class="d-flex flex-column min-vh-100">
@@ -32,12 +34,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Home</a></li>
-                        <li class="nav-item"><a class="nav-link {% if request.path == about_url %}active{%endif%}" aria-current="page" href="{% url 'about' %}">About</a></li>
                         {% if user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a></li>
+                            <li class="nav-item"><a class="nav-link {% if request.path == posts_list_url %}active{% endif %}" aria-current="page" href="{% url 'posts_list' %}">Posts List</a></li>
+                            <li class="nav-item"><a class="nav-link {% if request.path == add_post_url %}active{% endif %}" aria-current="page" href="{% url 'add_post' %}">Add Post</a></li>
+                            <li class="nav-item"><a class="nav-link {% if request.path == my_drafts_url %}active{% endif %}" aria-current="page" href="{% url 'post_drafts' %}">My Drafts</a></li>
+                            <li class="nav-item"><a class="nav-link {% if request.path == post_search_url %}active{% endif %}" aria-current="page" href="{% url 'post_search' %}">Posts Search</a></li>
+                            <li class="nav-item"><a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a></li>
+                            <li class="nav-item"><a class="nav-link {% if request.path == about_url %}active{%endif%}" aria-current="page" href="{% url 'about' %}">About</a></li>
                         {% else %}
-                        <li class="nav-item"><a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"href="{% url 'account_signup' %}">Register</a></li>
-                        <li class="nav-item"><a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a></li>
+                            <li class="nav-item"><a class="nav-link {% if request.path == about_url %}active{%endif%}" aria-current="page" href="{% url 'about' %}">About</a></li>
+                            <li class="nav-item"><a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"href="{% url 'account_signup' %}">Register</a></li>
+                            <li class="nav-item"><a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a></li>
                         {% endif %}
                     </ul>
                 </div>
@@ -51,19 +58,10 @@
                     <div class="alert {{ message.tags }} alert-dismissible
                     fade show" id="msg" role="alert">
                     {{ message | safe }}
-                    <button type="button" class="btn-close"
-                        data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                     {% endfor %}
                 </div>
             </div>
-        </div>
-        <div class="flex-shrink-0 ">
-            {% if user.is_authenticated %}
-            <p class="text-end m-3 " style="color: rgb(12, 128, 89);" >You are logged in as {{ user }}</p>
-            {% else %}
-            <p class="text-end m-3" style="color: rgb(236, 59, 50);" >You are not logged in</p>
-            {% endif %}
         </div>
 
             {% block content %}
@@ -100,5 +98,20 @@
 
     {% block extras %}
     {% endblock %}
+
+        <!-- JavaScript Code -->
+        {% block extra_js %}
+        <script>
+            // JavaScript timeout function for alert messages
+            // Credit: Code Institute I think Thorin app
+            setTimeout(function () {
+                let messages = document.getElementById('msg');
+                let alert = new bootstrap.Alert(messages);
+                if (messages != undefined) {
+                    alert.close();
+                }     
+            }, 2500);
+        </script>
+        {% endblock %}
     </body>
 </html>

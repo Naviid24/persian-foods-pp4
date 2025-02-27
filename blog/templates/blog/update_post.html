@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% load static %}
+{% block title %} Edit Post {% endblock %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+<!-- Form to update Post -->
+<div class="container card mt-5 mb-5">
+    <!-- enctype to upload media images to cloudinary -->
+    <form method="POST" enctype="multipart/form-data" class="form">
+        <h1 class="text-center mt-4 mb-2">Edit Your Post</h1>
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form | crispy }}
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary mt-4 mb-4">Update Post</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

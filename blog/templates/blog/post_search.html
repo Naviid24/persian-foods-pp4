@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Search Posts {% endblock %}
+
+{% block content %}
+<!-- Search Post Form -->
+<div class="container justify-content-center">
+    <div class="row ">
+        <h1 class=" mt-3  text-center">Search Posts here...</h1>
+    </div>
+    <form action="{% url 'post_search' %}" method="GET" class="search-form" role="search">
+        <div class="input-group">
+            <input type="text" class="form-control search-input" placeholder="Search by title" name="q"
+                value="{{ request.GET.q }}" aria-label="Search Posts">
+            <button class="btn btn-primary search-btn" type="submit">Search</button>
+        </div>    
+    </form>
+    <!-- Post result list view -->
+    {% if posts %}
+    <h2 class=" text-center mt-4 mb-5">Your Search Results</h2>
+    <div class="row mb-5 mt-5">
+        {% for post in posts %}
+        <div class="col-lg-4 col-md-6 col-12 mb-5 mx-auto">
+            <div class="card h-100 cards">
+                {% if "placeholder" in post.featured_image.url %}
+                <img class="post-image"
+                    src="https://res.cloudinary.com/dtnfhjoal/image/upload/v1740061530/zalikq1adaom6h3utdb9.jpg"
+                    alt="a kofte lamb">
+                {% else %}
+                <img class="post-image" src="{{ post.featured_image.url }}"
+                    alt="post image of a lamb kofte">
+                {% endif %}
+                <div class="card-body cards">
+                    <p class="card-text text-muted">Posted by {{ post.author }} | {{ post.created_on}}</p>
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text card-content">{{ post.excerpt }}</p>
+                    <hr>
+                    <a href="{% url 'post_detail' post.slug %}" class="btn btn-primary">View Post</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% elif request.GET.q %}
+    <p class="text-center mt-5">
+        No post found. Try refining your search.
+        <br>
+        Why not share your own culinary creations with our community and inspire others? 
+        <br>
+        Click the link to create your post <a href="{% url 'add_post' %}" 
+        aria-label="Create a new post" style="color: darkblue;"><strong>ADD YOUR POST</strong></a>     
+    </p>
+    <p class="text-center mt-3 mb-4"> 
+        To explore more posts click this link <a href="{% url 'posts_list' %}" 
+        aria-label="Go to all recipes page" style="color:darkblue;"><strong>All POSTS</strong></a>    
+    </p>
+    {% endif %}
+
+    {% if not post and not request.GET.q %}
+    <p class="text-center mt-4">Please enter post title or keyword to find your next tasty food post.</p>
+    {% endif %}
+    
+    <!-- Post List view Pagination -->
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li>
+                <a href="?page={{ page_obj.previous_page_number }}" class="page-link" aria-label="Previous">&laquo; PREV</a>
+            </li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li>
+                <a href="?page={{ page_obj.next_page_number }}" class="page-link" aria-label="Next">NEXT &raquo;</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+
+{% endblock content %}
