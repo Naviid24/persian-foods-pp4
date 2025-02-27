@@ -208,11 +208,16 @@ class DeletePost(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     model = Post
     success_url = reverse_lazy('posts_list')
-    
+
     def test_func(self):
         return self.request.user == self.get_object().author
 
-
+    def delete(self, request, *args, **kwargs):
+        post = self.get_object()
+        messages.success(
+            request, f'Your post "{post.title}"has been deleted successfully!')
+        return super().delete(request, *args, **kwargs)
+    
 
 class UserDrafts(ListView):
     """

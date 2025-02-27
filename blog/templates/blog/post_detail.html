@@ -55,7 +55,7 @@
             </div>
                 {% if post.author == user %}
                     <div>
-                        <a class="btn btn-outline-primary " href="{% url 'update_post' post.slug %}">
+                        <a class="btn btn-outline-primary" href="{% url 'update_post' post.slug %}">
                             Edit
                         </a>
                         <a class="btn btn-outline-danger ms-5" href="{% url 'post_delete' post.slug %}">
@@ -96,9 +96,9 @@
                             </p>
                         {% endif %}
                         {% if user.is_authenticated and comment.user == user %}
-                            <button class="btn b-delete btn-primary"
+                            <button class="btn b-delete btn-outline-primary"
                                 comment_id="{{ comment.id }}">Delete</button>
-                            <button class="btn  b-edit btn-primary"
+                            <button class="btn  b-edit btn-outline-primary ms-5"
                                 comment_id="{{ comment.id }}">Edit</button>
                         {% endif %}
                     </div>
