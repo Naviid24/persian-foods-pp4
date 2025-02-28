@@ -7,25 +7,7 @@ Persian Foods is a full-stack web application designed to provide users with a p
 
 - The website is built using HTML, CSS, JavaScript, Python, and the Django framework as part of Portfolio Project #4 for the Code Institute’s Full Stack Software Development course.
 
-### How the website looks like in screens
-
-<details><summary>Big Screen</summary>
-  
-![Big Screen](documentation/doc-images/big-screen.png)
-
-</details>
-
-<details><summary>ipad screen</summary>
-  
-![ipad screen](documentation/doc-images/ipad-screen.png)
-
-</details>
-
-<details><summary>mobile screen</summary>
-  
-![Big Screens](documentation/doc-images/mobile-screen.png)
-
-</details>
+![persian-foods-mockup-image](documentation/images/mockup/mockup.png)
 
 
 ### [Link to Live Website](https://django-persian-foods-c85134c12b3e.herokuapp.com/)
@@ -111,14 +93,14 @@ I employed the Agile methodology and utilized a GitHub project board to organize
 <details><summary>Issues List</summary>
 
 
-![issues](documentation/docs_images/issues_list.png)
+![issues](documentation/images/gile/issues_list.png)
 
 </details>
 
 <details><summary>Project Board</summary>
 
 
-![project board](documentation/docs_images/project_board.png)
+![project board](documentation/images/gile/project_board.png)
 
 </details>
 
@@ -228,10 +210,10 @@ Each Milestone covers the user stories for small features allowing me to priorit
 - As a User, I can navigate between pages easily, so that I can explore the website content without any chaos. **(User Story#22) (should have)**
 
 ##### Navigation bar for all users
-![navigation-bar-view](documentation/doc-images/nav-bar-unauthorised.png)
+![navigation-bar-view](documentation/images/feutures/nav-bar-all-user.png)
 
 ##### Navigation bar for authorised users
-![navigation-bar-view](documentation/doc-images/nav-bar-authorised.png)
+![navigation-bar-view](documentation/images/feutures/navbar-authenticated-user.png)
 
 - The navigation bar is shown on all pages based on the users logged-in(authentication) status and is responsive to all screen sizes. For smaller screen sizes the navigation bar appears as a compact menu and can be easily accessed. A success message is displayed when user is logged-in/ registered.
 - The design is kept clean and simple so that user can navigate between the pages easily without any confusion. The links are visible clearly both on large screen and smaller screen sizes. 
@@ -247,13 +229,15 @@ Each Milestone covers the user stories for small features allowing me to priorit
 
 - As a developer, I need to create a home page so that the user can quickly understand what the recipe blog offers and navigate easily to find interesting recipes. **(User Story#21) (must have)**
 
-![home-page](documentation/doc-images/home-page.png)
+![home-page-for-authenticated-user](documentation/images/feutures/home-authenticated.png)
+
+![home-page-for-all-user](documentation/images/feutures/home-all-users.png)
 
 #### Footer
 
 - As a developer, I need to create a footer so that I can include social media links, contact links and relevant site information about the website. **(User Story#5) (must have)**
 
-![footer-section-view](documentation/doc-images/footer.png)
+![footer-section-view](documentation/images/feutures/footer.png)
 
 - The footer section includes the information about the website: the developer of the website, the purpose (for educational purpose only), year developed and the developer's GitHub and LinkedIn links.
 - Similar to the navigation bar, the footer is displayed on every page of the website. It displays icon links to GitHub and LinkedIn accounts. These icon links can enable user to see more about my work through GitHub and learn more about me through LinkedIn. Both the links opens in new page.
@@ -267,26 +251,62 @@ Each Milestone covers the user stories for small features allowing me to priorit
 - As a developer, I want to style the allauth authentication pages(signup, login and logout pages) so that they are visually consistent with the rest of the website and provide a seamless user experience.
 **(User Story#23) (should have)**
 
-![sign-in-page](documentation/doc-images/sign-in.png)
+![sign-up-page](documentation/images/feutures/signup.png)
 
-![sign-up-page](documentation/doc-images/signup.png)
+![sign-in-page](documentation/images/feutures/sign-in.png)
 
-![sign-out-page](documentation/doc-images/sign-out.png)
+![sign-out-page](documentation/images/feutures/sign-out.png)
 
 - All the pages are accessible from navigation bar for large and small screen sizes.
 - User can easily access the sign-up / sign-in options to explore the website features completely.
 - A clear message is displayed on the pages for user to know whether he needs to sign-in or sign-up to explore the recipe website and to like, comment and post the recipes.
 - A success message is displayed to user based on his actions for sign-in, sign-up and sign-out.
 
+#### Add Post
+
+- As a logged-in User, I can create/publish posts so that I can share food posts that I find delicious with others. **(User Story#8) (must have)**
+
+![add-post-view](documentation/images/feutures/add-post.png)
+
+- CRUD Functionality - The Add Recipe page link is only visible and accessible to logged-in users. On clicking the Add post link, authorised users are directed to the create post form. The form field marked as * are mandatory to be filled. If user tries to submit the form without entering all required field, messages are displayed below relevant fields that are left empty.
+- A default image is incorporated so that if the user is unable to provide any recipe image, the default image will act as one.
+- All the fields in the form except the Recipe Image field are required. The form is not deemed to be valid in case any of the fields are left empty. User can either publish or save recipe as draft. 
+- Users can share their recipes with others using the add recipe form. On submitting the recipe, user is displayed with a success message and directed to the Recipes page.
+
+
+#### Edit Post
+
+- As a logged-in User, I can edit the recipes that I have shared so that I can correct and update the recipe details if necessary. **(User Story#9) (must have)**
+
+![edit-post-button](documentation/images/feutures/edit-post.png)
+
+![edit-post-page-view](documentation/images/feutures/edit-post.png)
+
+- CRUD Functionality - the feature of edit in post details page is only visible and accessible to the logged-in users and only if the user is the author of the post.
+- On clicking the edit button user is directed to the Edit post form/page where user can update / edit post for any changes and can either save as draft or publish it. On successful update of the post, user is displayed with success message and directed to Posts Page.
+- If unauthorised user accesses the link the 403 error page will be displayed.
+
+#### Delete Post
+
+- As a logged-in User, I can delete my posts so that they are no longer published on the site. **(User Story#10) (must have)**
+
+![delete-button-view](documentation/images/feutures/edit-post-button.png)
+
+![delete-post-page-view](documentation/images/feutures/delete-post-confirmation.png)
+
+
+- CRUD Functionality - the feature of delete in post details page is only visible and accessible to the logged-in users and only if the user is the author of the post.
+- User is directed to confirm delete page where user can either delete the post or cancel. 
+- The post is permanently deleted if delete is confirmed and a success message is diplayed to user else user will be taken back to post details page if cancelled.
+- If unauthorised user accesses the link the 403 error page will be displayed.
+
 #### Edit Comments
 
 - As a logged-in User, I can edit the Posts that I have shared so that I can correct and update the recipe details if necessary. **(User Story#9) (must have)**
 
-![edit-post](documentation/doc-images/edit-comment.png)
+![edit-comment]()
 
-- CRUD Functionality - the feature of edit in recipe details page is only visible and accessible to the logged-in users and only if the user is the author of the recipe.
-- On clicking the edit button user is directed to the Edit recipe form/page where user can update / edit recipe for any changes and can either save as draft or publish it. On successful update of the recipe, user is displayed with success message and directed to Recipes Page.
-- If anauthorised user accesses the link the 403 error page will be displayed.
+
 
 #### Delete Posts
 
@@ -302,45 +322,80 @@ Each Milestone covers the user stories for small features allowing me to priorit
 
 #### Post Details
 
-- As a Site User, I can view and read the detailed recipes shared/published by others so that I can get some inspiration. **(User Story#11) (must have)**
+- As a Site User, I can view and read the detailed posts shared/published by others so that I can get some inspiration. **(User Story#11) (must have)**
 
-##### Recipe Details View for Logged-in Users
-![post-details-page](documentation/doc-images/post-details.png)
+##### Post Details View for authorised users
+![post-details-page](documentation/images/feutures/post-detail.png)
 
 - User can view a detailed post on this page along with number of comments, number of likes and the all post information.
 - The edit and delete buttons are visible and accessible only to the logged-in user as author of the post.
-- Logged-in users can explore the recipe details page completely for like / unlike and comments feature.
-- If user is not logged-in, information is displayed below recipe for sign-in along with the comments from other users in the comment section.
+- Logged-in users can explore the post details page completely for like / unlike and comments feature.
 
-#### Recipe Pagination (Recipes Page)
+##### Post Details View for Logged-in User and author of the post
 
-- As a Site User, I can view a paginated list of recipe posts so that I can select which recipes I want to view. **(User Story#12) (should have)**
+![post-details-page](documentation/images/feutures/post-detail-author.png)
 
-![posts-pagination](documentation/doc-images/pagination.png)
+#### Posts Pagination (Posts Page)
 
-- This feature allows posts to be paginated by 4 recipes per page, given more than 1 page the next and prev buttons appear adjacent to each other.
-- The recipe list page is kept simple so that it is not overcrowded and user can find it easy to navigate between the pages.
+- As a Site User, I can view a paginated list of posts so that I can select which posts I want to view. **(User Story#12) (should have)**
+
+![posts-pagination](documentation/images/feutures/pagination.png)
+
+- This feature allows posts to be paginated by 4 posts per page, given more than 1 page the next and prev buttons appear adjacent to each other.
+- The posts list page is kept simple so that it is not overcrowded and user can find it easy to navigate between the pages.
 - On clicking the Read more button user is taken to post details page to view complete post information.
+
+#### My Drafts Page
+
+- As a logged-in User, I can go to a page to view only my recipes so that I can easily access them if needed.
+**(User Story#13) (should have)**
+
+- **Note:** The user story is partially complete. User can only view the posts saved as draft in my drafts page for now. User can update the draft post from my drafts page to either publish or save it for later. 
+- This page is only accessible and visible to logged-in users.
+- The paginated list of post drafts is displayed with 4 posts per page (if present). With this feature user can create post and save for later as draft for changes or to publish later.
+- User can also make his published posts draft for any changes. This feature allows a flexibility for user to share posts and manage them.
+
+![my-drafts-recipe-view](documentation/images/feutures/draft.png)
+
+
+#### Search posts Page
+
+- As a Site User, I can search posts so that I can only view posts I am interested in. **(User Story#14) (could have)**
+
+![search-posts-page](documentation/images/feutures/search.png)
+
+![search-results-page](documentation/images/feutures/search-result.png)
+
+![search-not-found-page](documentation/images/feutures/search-not-found.png)
+
+- The search post page allows users to search posts by title or keyword. This page is accessible throughout the website and to all users.
+- If the user search results are not found, a message for refining search is provided. Also user is encouraged to share own posts or view all posts.
+- If search query is not provided by user, the page is loaded with message to search bu post title or keyword.
+
 
 #### Comment Section
 
-- As a Site User, I can leave comments on recipes so that I can interact with others/share my opinion. **(User Story#15) (should have)**
+- As a Site User, I can leave comments on posts so that I can interact with others/share my opinion. **(User Story#15) (should have)**
 
-- As a Site User, I can view comments on an individual recipe post so that I can read the conversation. **(User Story#16) (should have)**
+- As a Site User, I can view comments on an individual post so that I can read the conversation. **(User Story#16) (should have)**
 
-##### Comments Section for authorised Users
-![comment-view-](documentation/docs_images/comments-section-unauthorised.png)
+##### Comments Section for author of the comment
+![comment-view-](documentation/images/feutures/coment-management.png)
 
-#### Like / Unlike Recipes
+##### Comments Section for all logged-in users
+![comment-view-loggedin-users](documentation/images/feutures/comment-login-users.png)
 
-- As a logged-in User, I can like/unlike others' recipes so that I can interact with the content. **(User Story#17) (should have)**
 
-![liked-recipe-view](documentation/doc-images/like.png)
-![liked-recipe-view](documentation/doc-images/unlike.png)
+#### Like / Unlike Post
 
-- The like / unlike feature allows logged-in user to like or unlike the recipes.
-- Authorised user - likes the recipes (if didn't previously liked the recipe), hollow heart icon will be displayed - if clicked the icon will change to solid red color and the number of likes will increase by one.
-- Authorised user - unlikes the recipe (if previously liked the recipe) , the solid red heart icon will be shown - if clicked the icon will chnage to hollow ones and the number of likes will be decreased by one.
+- As a logged-in User, I can like/unlike others' posts so that I can interact with the content. **(User Story#17) (should have)**
+
+![liked-post-view](documentation/images/feutures/like.png)
+![liked-post-view](documentation/images/feutures/unlike.png)
+
+- The like / unlike feature allows logged-in user to like or unlike the posts.
+- Authorised user - likes the posts (if didn't previously liked the post), thumb icon will be displayed - if clicked the icon will change to solid blue color and the number of likes will increase by one.
+- Authorised user - unlikes the post (if previously liked the post) , the number of likes will be decreased by one.
 
 #### Admin Functionality
 
@@ -348,19 +403,20 @@ Each Milestone covers the user stories for small features allowing me to priorit
 - As a Site Admin I can create, read, update and delete recipe posts so that I can manage my recipe blog content. **(User Story#25) (must have)**
 - As a Site Admin I can approve or disapprove comments so that I can filter out objectionable comments. **(User Story#26) (must have)**
 
-![admin-functionality-view](documentation/doc-images/admin.png)
+![admin-functionality-view](documentation/images/feutures/admin.png)
 
 - The most important task for website to function was to create a superuser, to manage the recipe post functionality and the website entirely.
 - The admin can ensure the quality and organization of the content on the webite.
-- When the comment is made by any user on the recipe, the comment awaiting approval message is displayed to user. The comment is only displayed if it approved by admin.
+- When the comment is made by any user on the post, the comment awaiting approval message is displayed to user. The comment is only displayed if it approved by admin.
 - The admin panel helps the administrator to have control over the website to function seamlessely and keep the website content meaningful and organized.
 
 #### Feedback on user actions
+
 - As a Site User, I can get corresponding feedback after taking an action so that I know whether my actions were successfully run or not. **(User Story#18) (must have)**
 
-![user-signin-success-message](documentation/doc-images/logged-in.png)
+![user-signin-success-message](documentation/images/feutures/signed-in-feedback.png)
 
-![user-signin-success-message](documentation/doc-images/logged-out.png)
+![user-signed-out](documentation/images/feutures/signed-out-feedback.png)
 
 - This feature informs the user if the action taken has been successful so that user can know the outcome of every action throughout while navigating the website.
 - Message will be displayed when :
@@ -380,7 +436,8 @@ Each Milestone covers the user stories for small features allowing me to priorit
 
 - As a user, I am notified in case of an internal error so that I can understand what went wrong and how to proceed. **(User Story#29) (nice to have)**
 
-![error-404-page](documentation/doc-images/404.png)
+![error-404-page](documentation/images/feutures/404-error.png)
+![error-500-page](documentation/images/feutures/500-error.png)
 
 - The custom error pages are displayed if user encounters an error while accessing unauthorised link(access denied), user navigates to a page not present(page not found), or if there is internal error while rendering the user requested resource.
 - This feature communicates to the user about what went wrong and gives option to go back to the home page. This gives user an option to navigate the website again without leaving it.
@@ -423,10 +480,70 @@ All the user stories are completed for project setup, project documentation and 
 
 ## The Skeleton Plane
 
-### Wireframes
-Wireframes for Home page
+#### Desktop Wireframes
+Wireframes for Large Screen Sizes 
 
 #### Home Page 
+![home-page-desktop-wireframe](documentation/images/wireframes/desctop-wireframes/home-unauth-wireframe.png)
+
+#### Posts List page
+This page is accessible for just logged-in users
+![posts-list-desktop-wireframe](documentation/images/wireframes/desctop-wireframes/posts-list-wireframe.png)
+
+#### Add Posts page
+![add-post-desktop-wireframe](documentation/images/wireframes/desctop-wireframes/add-post-wireframe.png)
+
+#### Search Posts page
+![search-post-desktop-wireframe](documentation/images/wireframes/desctop-wireframes/search-wireframe.png)
+
+#### My Drafts page
+![my-drafts-desktop-wireframe](documentation/images/wireframes/desctop-wireframes/draft-wireframe.png)
+
+#### About page
+![about-desktop-wireframe](documentation/images/wireframes/desctop-wireframes/about-wireframe.png)
+
+#### Sign In page
+![signin-desktop-wireframe](documentation/images/wireframes/desctop-wireframes/sign-in-wireframe.png)
+
+#### Sign Out page
+![signout-desktop-wireframe](documentation/images/wireframes/desctop-wireframes/signout-wireframe.png)
+
+#### Sign Up page
+![signout-desktop-wireframe](documentation/images/wireframes/desctop-wireframes/signup-wireframe.png)
+
+
+#### Mobile Wireframes
+Wireframes for Small Screen Sizes
+
+#### Home Page 
+![home-page-mobile-wireframe](documentation/images/wireframes/mobile-wireframes/home-mobile-wireframe.png)
+
+#### Posts List page
+This page is accessible for just logged-in users
+![posts-list-mobile-wireframe](documentation/images/wireframes/mobile-wireframes/posts-list-mobile-wireframe.png)
+
+#### Add Posts page
+![add-post-mobile-wireframe](documentation/images/wireframes/mobile-wireframes/add-post-mobile-wireframe.png)
+
+#### Search Posts page
+![search-post-mobile-wireframe](documentation/images/wireframes/mobile-wireframes/search-mobile-wireframe.png)
+
+#### My Drafts page
+![my-drafts-mobile-wireframe](documentation/images/wireframes/mobile-wireframes/draft-mobile-wireframe.png)
+
+#### About page
+![about-mobile-wireframe](documentation/images/wireframes/mobile-wireframes/about-mobile-wireframe.png)
+
+#### Sign In page
+![signin-mobile-wireframe](documentation/images/wireframes/mobile-wireframes/signin-mobile-wireframe.png)
+
+#### Sign Out page
+![signout-mobile-wireframe](documentation/images/wireframes/mobile-wireframes/signout-mobile-wireframe.png)
+
+#### Sign Up page
+![signout-mobile-wireframe](documentation/images/wireframes/mobile-wireframes/signup-mobile-wireframe.png)
+
+
 
 
 
