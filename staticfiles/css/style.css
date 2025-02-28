@@ -92,7 +92,13 @@ body {
 /* Post List Page */
 .post-image {
     width: 100%;
-    height: 200px;
+    height: 330px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.post-detail-image{
+    height: 330px;
     object-fit: cover;
 }
 

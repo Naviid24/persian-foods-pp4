@@ -1,6 +1,6 @@
-{% extends "base.html" %}  {% block content %}
+{% extends "base.html" %}
 {% load static %}
-
+{% block content %}
     <!-- Page header -->
     <header class="py-5 bg-light border-bottom mb-1">
         <div class="container"> 
@@ -26,10 +26,10 @@
                             <div class="card mb-4">
                                 <a href="{% url 'post_detail' post.slug %}">  
                                     {% if "placeholder" in post.featured_image.url %}
-                                    <img class="card-img-top img-fluid img-posts cards"  src="{% static 'images/gheymeh.png' %}"
+                                    <img class="card-img-top img-fluid post-image cards"  src="{% static 'images/gheymeh.png' %}"
                                       alt="placeholder image">
                                     {% else %}
-                                    <img class="card-img-top cards" style="height: 300px; object-fit: cover;" src=" {{ post.featured_image.url }}"
+                                    <img class="card-img-top post-image cards" src=" {{ post.featured_image.url }}"
                                       alt="{{ post.title }}">
                                     {% endif %}
                                 </a>
