@@ -12,7 +12,10 @@ from django.views.generic import (
     DeleteView
 )
 from django.db.models import Q
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import( 
+    LoginRequiredMixin,
+    UserPassesTestMixin
+)
 from django.urls import reverse_lazy
 
 
