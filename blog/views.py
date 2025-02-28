@@ -14,7 +14,6 @@ from django.views.generic import (
 from django.db.models import Q
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
-from django.contrib.auth.decorators import login_required
 
 
 class IndexView(TemplateView):
@@ -24,6 +23,11 @@ class IndexView(TemplateView):
     template_name = "blog/index.html"
 
 
+def custom_404(request, exception):
+    """Custom 404 error page."""
+    return render(request, 'blog/404.html', status=404)
+
+
 class PostList(generic.ListView):
     """View to list published blog posts with pagination."""
     queryset = Post.objects.filter(status=1).order_by("-created_on")
@@ -31,7 +35,6 @@ class PostList(generic.ListView):
     paginate_by = 4  # Controls pagination
 
 
-@login_required
 def post_detail(request, slug):
     """
     Display an individual blog post with comments.
@@ -77,12 +80,6 @@ def post_detail(request, slug):
     )
 
 
-def custom_404(request, exception):
-    """Custom 404 error page."""
-    return render(request, 'blog/404.html', status=404)
-
-
-@login_required
 def like_post(request, post_id):
     """
     Handles liking and unliking of a post via AJAX.
@@ -102,7 +99,6 @@ def like_post(request, post_id):
     return JsonResponse({"liked": liked, "total_likes": post.likes.count()})
 
 
-@login_required
 def comment_edit(request, slug, comment_id):
     """
     Handles editing of a user's comment.
@@ -132,7 +128,6 @@ def comment_edit(request, slug, comment_id):
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-@login_required
 def comment_delete(request, slug, comment_id):
     """
     Handles deletion of a user's comment.
