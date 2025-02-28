@@ -34,7 +34,7 @@
                                     {% endif %}
                                 </a>
                                 <div class="card-body">
-                                    <div class="small text-muted mb-2">{{ post.created_on }}</div>
+                                    <div class="small text-muted mb-2">{{ post.created_on }} | {{ post.category }}</div>
                                     <h2 class="card-title h4">{{ post.title }}</h2>
                                     <p class="card-text">{{ post.excerpt }}</p>
                                     <a class="btn btn-primary" href="{% url 'post_detail' post.slug %}">Read more →</a>

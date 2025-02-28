@@ -33,11 +33,12 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item" > {{ request.path }} </li>
                         {% if user.is_authenticated %}
                             <li class="nav-item"><a class="nav-link {% if request.path == posts_list_url %}active{% endif %}" aria-current="page" href="{% url 'posts_list' %}">Posts List</a></li>
                             <li class="nav-item"><a class="nav-link {% if request.path == add_post_url %}active{% endif %}" aria-current="page" href="{% url 'add_post' %}">Add Post</a></li>
                             <li class="nav-item"><a class="nav-link {% if request.path == my_drafts_url %}active{% endif %}" aria-current="page" href="{% url 'post_drafts' %}">My Drafts</a></li>
-                            <li class="nav-item"><a class="nav-link {% if request.path == post_search_url %}active{% endif %}" aria-current="page" href="{% url 'post_search' %}">Posts Search</a></li>
+                            <li class="nav-item"><a class="nav-link {% if request.path == '/post_search/' %}active{% endif %}" aria-current="page" href="{% url 'post_search' %}">Posts Search</a></li>
                             <li class="nav-item"><a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a></li>
                             <li class="nav-item"><a class="nav-link {% if request.path == about_url %}active{% endif %}" aria-current="page" href="{% url 'about' %}">About</a></li>
                         {% else %}

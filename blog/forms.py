@@ -18,13 +18,14 @@ class PostForm(forms.ModelForm):
             'status',
             'excerpt',
             'slug',
+            'category',
         ]
 
         widgets = {
             'ingredients': SummernoteWidget(),
             'instructions': SummernoteWidget(),
             'content': forms.Textarea(
-                attrs={'rows': 5, 'placeholder': 'Describe your recipe here'}),
+                attrs={'rows': 5, 'placeholder': 'Describe your post here'}),
         }
 
         labels = {
@@ -34,6 +35,7 @@ class PostForm(forms.ModelForm):
             'ingredients': 'Recipe Ingredients',
             'instructions': 'Recipe Instructions',
             'status': 'Status (Save as a Draft / Publish Now)',
+            'category': 'Categories (Vegitarians / Meat / Chicken)'
         }
 
 
