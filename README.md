@@ -613,25 +613,417 @@ The website uses clean, simple design with earthy colours and images that showca
 - HttpResponseRedirect, reverse : used to direct user to specific URL
 - get_object_or_404: used to get specific object from database or raise 404 exception if not found
 
+#### External Packages
 
+- asgiref - A standard Python library to allow for asynchronous web apps and servers to communicate with  each other.
+- cloudinary==1.36.0 - media management cloudinary
+- dj3-cloudinary-storage==0.0.6 - cloudinary storage
+- dj-database-url==0.5.0 - Django utility allows to utilize DATABASE_URL environment variable to configure 
+  Django application
+- Django==4.2.9 - Framework used to build the project
+- django-allauth==0.57.0 - authentication in django allows users to sign-in / signup / logout
+- requests-oauthlib==1.3.1 - installed with the allauth
+- psycopg2==2.9.9 - additional dependency needed to support PostgreSQL when deployed on heroku
+- django-crispy-forms==2.1 - used to display forms to user
+- django-summernote==0.8.20.0 - used to provide editor in forms
 
+Installed as dependencies with other packages:
+- gunicorn==20.1.0
+- oauthlib==3.2.2
+- PyJWT==2.8.0
+- python3-openid==3.2.0
+- sqlparse==0.4.4
+- urllib3==1.26.18
 
+## Testing 
 
+### Responsiveness
 
+- The site is designed to be flexible, fluid and responsive on all screen sizes. Website has been checked for responsiveness through Chrome Development tools. In order to do this, the following steps have been taken:
+  1. Open the browser.
+  2. Navigate to the Tasty Tales website <https://tasty-tales-4b4d80fd4040.herokuapp.com/>
+  3. Right click anywhere on the page and got to "Inspect" to open Development Tools.
+  4. Click on drop down menu: "Dimensions: Responsive" and choose "Responsive".
+  5. Drag the side of the screen and change screen size, making sure the website looks good from 320px and up. Here, ensure there is consistency in design of the website on every screen size from small(mobile devices) to larger(desktop devices) and no scorll bar is showing for layout of site.
 
+- Expected Result: Each page is responsive and user friendly when viewing the website on small and large screens.The pages have no design or accessibility issue in any of the screen sizes from 320px and up.
+- Actual Result: Website is responsive with no scroll bar showing, the content is accessible to user to read and the images are not appearing stretched. Website is user friendly on small to large screen sizes.
 
+- The following devices are used to check responsiveness:
+     - Iphone 12 Pro
+     - Samsung Galaxy S20 Ultra
+     - iPad Mini
+     - Surface Pro 7
+- The website was also tested further by sharing the live link with friends and family. The site was tested on following devices:
+     - Samsung S20 FE 5G
+     - Iphone 12 
+     - iPad Air
+     - Samsung S24 Ultra
+     - Microsoft Surface
+     - Asus X5 50
+     - Lenovo Pad Pro 12.7
 
+- The following browsers have been used to check responsiveness. Testing for different browsers was carried on using [BrowserStack](https://www.browserstack.com/) and manually on some of the browsers.
+     - Chrome
+     - Safari
+     - Microsoft Edge
+     - Firefox
+     - Internet Explorer
 
+### Accessibility
 
+- Each page is checked with the help of WAVE Accessibility tool (<https://wave.webaim.org/>)
+- Each page passes accessibility test with no error for:
+  - contrast
+  - aria- labels for users who use screen-readers.
+  - alternative text as a function for screen readers or in events if the images don't load.
+  - structural elements: for users of assistive technology as well as visual and semantic meaning.
+  - language of the document for screen readers.
+  - an alert coming up 'Reduntant link-Adjacent links go to the same URL', however as it doesn't come up as an error, I have left it in' This is due to page logo and Home page having the same destination link.
+  - an alert is coming up 'same alternative text to nearby images' in recipes list view, as the alt is given default in the code, the user uploaded images appear with same alternative text, the solution for this can be adding an image alt field to model, so that the alternative text for image is added by user. I have left it in for later.
+
+![wavw-testing-result](documentation/images/testing/wave-testing.png)
+
+### Lighthouse
+
+### Home Page (Desktop / Mobile)
+
+<details>
+
+  <summary>Home Page - Desktop</summary>
+    
+![home-page-lighthouse-desktop](documentation/images/testing/light-house-home.png)
+
+  </details>
+
+<details>
+
+  <summary>Home Page - Mobile</summary>
+    
+![home-page-lighthouse-mobile](documentation/images/testing/home-mobile-lighthouse.png)
+
+  </details>
+
+### Posts Page (Desktop / Mobile)
+
+<details>
+
+  <summary>Posts Page - Desktop</summary>
+    
+![posts-page-lighthouse-desktop](documentation/images/testing/posts-lighthouse.png)
+
+  </details>
+
+<details>
+
+  <summary>Posts Page - Mobile</summary>
+    
+![posts-page-lighthouse-mobile](documentation/images/testing/posts-mobile-lighthouse.png)
+
+  </details>
+
+### Add Post Page (Desktop / Mobile)
+
+<details>
+
+  <summary>Add Post Page - Desktop</summary>
+    
+![add-post-page-lighthouse-desktop](documentation/images/testing/addpost-light-desktop.png)
+
+  </details>
+
+<details>
+
+  <summary>Add Post Page - Mobile</summary>
+    
+![add-post-page-lighthouse-desktop](documentation/images/testing/addpost-lighthouse-mobile.png)
+
+  </details>
+
+### Search Page (Desktop / Mobile)
+
+<details>
+
+  <summary>Search Page - Desktop</summary>
+    
+![search-page-lighthouse-desktop](documentation/images/testing/search-desktop-lighthouse.png)
+
+  </details>
+
+<details>
+
+  <summary>Search Page - Mobile</summary>
+    
+![search-page-lighthouse-desktop](documentation/images/testing/search-mobile-lighthouse.png)
+
+  </details>
+
+### Login Page (Desktop / Mobile)
+
+<details>
+
+  <summary>Login Page - Desktop</summary>
+    
+![login-page-lighthouse-desktop](documentation/images/testing/signin-desktop-lighthouse.png)
+
+  </details>
+
+<details>
+
+  <summary>Login Page - Mobile</summary>
+    
+![login-page-lighthouse-desktop](documentation/images/testing/signin-mobile-lighthouse.png)
+
+  </details>
   
+### Sign up Page (Desktop / Mobile)
+
+<details>
+
+  <summary>Signup Page - Desktop</summary>
+    
+![signup-page-lighthouse-desktop](documentation/images/testing/signup-desktop-lighthouse.png)
+
+  </details>
+
+<details>
+
+  <summary>Login Page - Mobile</summary>
+    
+![signup-page-lighthouse-desktop](documentation/images/testing/signup-mobile-lighthouse.png)
+
+  </details>
+
+### About Page (Desktop / Mobile)
+
+<details>
+
+  <summary>About Page - Desktop</summary>
+    
+![about-page-lighthouse-desktop](documentation/images/testing/about-desktop-lighthouse.png)
+
+  </details>
+
+<details>
+
+  <summary>About Page - Mobile</summary>
+    
+![about-page-lighthouse-desktop](documentation/images/testing/about-mobile-lighthouse.png)
+
+  </details>
+
+## Validator Testing
+
+### HTML Validation
+
+All pages have been run through the [W3C VALIDATOR](https://validator.w3.org/).
+
+In order to check HTML code in dynamic website:
+
+- go to the live page
+- click right and select 'Inspect' then click right and select 'View page source'
+- code will open in new tab - copy the code
+- paste the code in the validator as 'direct input'
+
+#### Home Page
+![home-page-html-validation](documentation/images/html-validator/home-html-valid.png)
+
+#### Posts Page
+![posts-page-html-validation](documentation/images/html-validator/posts-html-valid.png)
+
+#### Drafts Page
+![Drafts-page-html-validation](documentation/images/html-validator/draft-html-valid.png)
+
+#### Post Delete Page
+![post-delete-page-html-validation](documentation/images/html-validator/post-delete-html-valid.png)
+
+#### Post Detail Page
+![post-detail-page-html-validation](documentation/images/html-validator/post-detail-html-valid.png)
+
+#### Search Page
+![posts-page-html-validation](documentation/images/html-validator/search-html-valid.png)
+
+#### Add Recipe Page | Update Recipe Page
+All errors listed by W3Validator are related to Summernote, and not any code written by me. Errors are the same for both "Add Recipe" page and "Update Recipe" page. Research conducted within the Code Institute community indicates that this is a common occurrence, and therefore it should be noted. However, no action needs to be taken in response.
+
+#### Sign Up Page
+ The Sign Up page HTML code is part of the Django authentication form, and I could find no way to change it. 
+ The html errors are coming from Django forms interpretation of allauths helper text, and not any code written by me. So, no action is taken in response.
+  
+### CSS Validation
+No errors were found when passing through the official Jigsaw W3 Validator
+
+![css-validation-check](documentation/images/css-validator/css-valid.png)
+
+### JavaScript Validation
+No errors were found when passing through the [jshint validator](https://jshint.com/)
+
+![jshint-validation-check](documentation/images/jsvalidator/jshint-validator.png)
+
+### Python Validation
+No errors were found when passing each file through [CI Python Linter](https://pep8ci.herokuapp.com/)
+
+![python-validation-check](documentation/images/python-validator/python-validation.png)
+
+Couple of warnings when running settings.py file. Too long lines of code. Modifying the file for resolving the warnings rendered errors during deployment. I have left the mentioned lines in settings.py file unchanged for warnings. All other python files have passed the validation with no errors.
+
+## Manual Testing
+
+### Functional Testing
 
 
+|  Function   |   Action   |    Expected    |  Actual  |
+|-------------|-------------|----------------|----------|
+| sign-up   | user clicks- 'sign-up' or 'sign up now', user enters username, password and repeats password,(email optional) user clicks- 'sign-up>>' | user directed to home page, user receives a message of Successfully Signed up as 'USERNAME' at the top of the page |  as expected  |
+| sign-in   | user clicks- 'sign-in' from nav bar or from sign-up page if entered it but already holds login details, user enters correct username and password, user clicks- 'sign-in' | user directed to home page, user receives a message of Successfully Signed in as 'Username' at the top of the page | as expected  |
+| log-out  | user clicks ' log-out' from nav bar, sign-out page displays to confirm sign-out, user confirms by clicking ' sign-out'  | user directed to home page, user receives a success message of 'You have signed out' at the top of the page | as expected  |
+| recipes tab |  user clicks on 'recipes' tab from nav bar | user directed to recipes.html page, a list of 'published' recipes available to view regardless of user auth state. User can see 6 recipe post list per page and pagination navigation available below recipe posts lists if more than 1 pages available | as expected  |
+| pagination navigation (from recipes.html, my_drafts.html or recipe_search.html)| user on page 1: can see and clicks on: next. If user is not on page 1: user can see and click on : previous or next page if more than 2 pages available | user gets directed to relevant and correct page depending on which option (next / prev) was clicked | as expected  |
+| view recipes (from list view on recipes.html or recipe_search.html)| user hovers over ' view recipe' button, button changes color to dark blue when hovered over, user clicks on the button | recipe_detail.html page rendered for user, user can see correct recipe in detail | as expected  |
+| Like function (from recipe_detail page) | 1. logged-in user clicks on hollow heart icon 2. logged-in user clicks on the solid red heart icon 3. unauthorised user clicks on heart icon | 1. icon changes to solid red color and number of likes increases by one. 2.icon changes to hollow and number of likes decreases by One. 3. the hollow heart icon has no effect | as expected  |
+| login to leave a comment : sign-in (from recipe_detail page) | user clicks on 'sign-in', user enters correct username and password, then clicks ' sign in' | user redirected back to the same recipe detail page, user can see success message at the top of the screen. upon scrolling down to comments section- user can now see submission form to leave a comment instead of sign-in option | as expected  |
+| leave comment form | user enters a comment and clicks submit | users comment now displays in comments section adjacent to the comment form. Comments are shown in reverse chronological order with the oldest comments apperaing first | as expected  |
+| My Drafts tab | logged in user clicks on My Drafts tab from nav bar | user directed to my_drafts.html, a list of only users own recipes - 'status - draft' available to view. User can see 6 recipes list per page and pagination navigation available below recipe posts if more than 6 recipes are available. If user didn't create any draft recipe yet a message will be displayed conveying user has no draft recipes yet. | as expected  |
+|Add Recipe tab | logged in user clicks on Add Recipe tab from nav bar | user directed to add_recipe.html page where they can see submission form for recipes | as expected  |
+| Add Recipe form | user enters all fields marked as required with an '*', the optional image field can either stay empty or be filled in- user clicks 'submit' | user directed back to recipes.html page, a success message displays on the top of the page, user now can see the added recipe post in list view on recipes page. If user submitted the recipe as draft- the recipe displays only on My Drafts page with status of 'Draft', if post was marked as published- it displays as a list view on recipes.html page | as expected  |
+| Delete recipe (recipe_detail page ) | user can only see ' delete' button on own published recipes. User clicks on 'delete'. User directed to recipe confirm delete page. 1. user clicks'Yes, Delete Recipe' 2.user clicks 'Cancel' | 1. user is taken back to recipes.html page, success message displayed at the top of the page, recipe deleted 2. user directed back to recipe_details page for the same recipe and recipe remains published. | as expected  |
+| Edit recipe (recipe_detail page or my_drafts page) | user can only see 'Edit' button on own recipes. User clicks on 'Edit'. User directed to a edit form on update_recipe.html page . User can change any field and click submit. | user directed back to recipes page, success message displays if recipe is updated succesfully. User can still see the recipe in list view  if published or on the my_drafts page if updated as draft(The update / edit form submission here and in the my_drafts page is same, it will be directed to edit form in both cases on clicking edit/ update button) | as expected |
+| Search Recipes tab | user clicks on Search Posts tab from nav bar regardless of auth status | user directed to recipe_search.html page where they can see form to search recipes | as expected  |
+| Add Your Recipe link(Search Recipes Page) | user clicks on add your recipe link regardless of auth status | 1. logged-in user directed to add_recipe.html page where they can see form to add page. 2. unauthorised users are directed to sign-in page and can sign up if not. | as expected  |
+
+### Links and Buttons
+
+| Button / Anchor Link / Location | Destination Page | Page Opens In New Tab |
+|---------------------------------|------------------|-----------------------|
+|TastyTales logo - nav bar	      | index.html	      | no - as expected       |
+| Home tab - nav bar	              |  index.html	      |  no - as expected      |
+| Recipes tab - nav bar	          |   recipes.html	   | no - as expected      |
+|Search Recipes tab - nav bar      |   recipe_search.html | no - as expected    |
+| Add Recipe tab - nav bar (for logged-in users only) | add_recipe.html | no - as expected    |
+| My Drafts tab - nav bar (for logged-in users only) |  my_drafts.html | no - as expected    | 
+|Logout - nav bar(for logged-in users only) | logout.html |	no-as expected  |
+| SignUp Now- from index.html(unauthorised users only) | signup.html |	no - as expected |
+| Sign Up - nav bar (unauthorised users only) |	signup.html	 |  no - as expected  |
+| Sign In - nav bar (unauthorised users only) |	login.html |	no - as expected |
+| Sign in - comments section, recipe_detail.html(unauthorised users only) |	login.html| no - as expected |
+|Edit - recipe_detail.html(on users own recipes only) | update_recipe.html | no - as expected |
+| Delete - recipe_detail.html(on users own recipes only) |	recipe_confirm_delete.html |	no - as expected |
+| All recipes - from recipe_search.html (for all users) | recipes.html | no - as expected |
+| Add Your Recipe - from recipe_search.html (1. for unauthorised users. 2. for authorised users) | 1.login.html. 2.add_recipe.html | no - as expected |
+|"GitHub" Icon - footer | <https://github.com/gayatrig19> | yes - as expected |
+|"LinkedIn" Icon - footer | <https://www.linkedin.com/in/gayatri-ghogare-a8099692/> | yes - as expected |
+
+### Negative Testing
+
+Testing is performed on all forms in the website and for user authentication to Create, Update, Delete recipes.
+
+|  Function  |   Action    |    Expected    |  Actual  |
+|------------|--------------|---------------|-----------|
+|Sign Up   |	user doesn't fill in all required fields (username and password twice), user enters password twice but doesn't match, username enters too common password or less than 8 characters |	user received a prompt with directions, submission unsuccessful user can enter details again | as expected |
+|Sign-in |	user doesn't fill in all required fields (username and password). user enters incorrect username or password | user receives prompt why sign-in is unsuccessful and can enter details again |	as expected |
+| Add Recipe form | user doesn't fill in all required fields(marked with *) | user receives a prompt to fill in the required field. form doesn't submit. user can enter details again | as expected |
+|Edit Recipe |	1.user tries to access URL to edit recipe but not logged in 2. user tries to access the url from different username	| 1.user directed to login page 2. user receives error 403 |	as expected |
+| Delete Recipe |	1.user tries to access URL to delete recipe but not logged in 2. user tries to access the url from different username | 1.user directed to login page 2. user receives error 403 | as expected |
+| Comment form |	user tries to submit empty comment form |	user receives prompt Please fill in this field, form is not submitted |	as expected |
 
 
+## Automated Testing
+
+### Unit Testing
+
+No unit testing performed at this stage.
+
+## Bugs
+ - Active attribute didn't work in the navbar because I used wrong way to add active attribute to the nav bar and after talk with tutor I replaced a new way and resolved it.
+ - Installing both whitenoise and cloudinary resulted in conflict for serving static files and as a result the deployment failed.
+  - Fix: The order of apps in my Installed Apps in settings.py for cloudinary was not correct. The apps are reorder correctly, Whitenoise and related staticfiles folder is removed. Static files are served on Cloudinary.
+
+## Deployment
+
+### Version Control
+
+- The website was developed through Gitpod.
+
+- Code has been pushed to repository on Github with following git commands:
+
+    - git add . - to add files ready to commit
+    - git commit -m "message" - to commit the code to local repository ready to be pushed
+    - git push - final command used to push committed code to remote repo on Github
 
 
+### Deployment In Heroku
+
+- The project has been deployed on Heroku as follows:
+     - Use: pip freeze > requirements.txt to add external libraries to deployed app.
+     - Create Heroku account
+     - In the top right, click 'New'
+     - Click 'Create new app'
+     - Give your app a name and select your region from drop down
+     - Click 'Create new app'
+     - Go to 'settings' tab, it's important you do it before deployment
+     - Scroll down to 'config vars' section and key:
+          - PORT and value: 8000
+          - CLOUDINARY_URL: 'API key to your cloudinary account'
+          - DATABASE_URL : 'URL from your database account'
+          - SECRET_KEY: 'Generate your own secret key'
+     - Scroll down to 'Buildpacks' section
+     - Click 'Add buildpack'
+     - Add Python as first dependency and select 'Save changes'
+     - Add node.js as a second dependency and save again (This is settings section done)
+     - Select 'Deploy' tab at the top
+     - Select 'Github' from 'Deployment method'
+     - type the name of how you called project in Github and click 'search'
+     - Scroll down and select manual deployment method
+     - You can also use Auto deployment method to allow the project to update every time you push the code.
+     - You can now click to view the app ready and running
+- For this project I used Manual deployment method to deploy the current state of the branch, every time I pushed the code from Gitpod.
 
 
+### Cloning the Repository
+
+1. On Github navigate to the repository
+2. Click "Code" drop down menu - a green button shown right above the file list.
+3. Copy the URL of the repository using "HTTPS", "SSH" or "Github CLI".
+4. Open Git Bash.
+5. Change the current working directory to the location where you want the cloned directory.
+6. Type "git clone", and then paste the URL copied earlier.
+7. Press enter to create local clone. A clone of the repository will now be created.
+
+For more details on how to clone the repository in order to create a copy for own use refer to the site: <https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository>
+
+
+### Forking 
+
+1. On Github navigate to the repository.
+2. Click "Fork" located towards top right corner on GitHub page.
+3. Select "owner" for the forked repository from the dropdown menu under "owner".
+4. It will create forked repo under the same name as original by default. But you can type a name in "Repository name" or add a description in "Description" box.
+5. Click on "Create fork". A forked repo is created.
+
+- Forking allows you to make any changes without affecting original project. You can send the the suggestions by submitting a pull request. Then the Project Owner can review the pull request before accepting the suggestions and merging them.
+- When you have fork to a repository, you don't have access to files locally on your device, for getting 
+  access you will need to clone the forked repository.
+- For more details on how to fork the repo, in order to for example suggest any changes to the project you can visit:<https://docs.github.com/en/get-started/quickstart/fork-a-repo>
+
+
+## Credits
+
+- I learned many things from Gayatrig project and it helped me alot. [Gayatrig-tastytales-website](https://tasty-tales-4b4d80fd4040.herokuapp.com/)
+- All images used on the website are sourced from [Pexels](https://www.pexels.com/), [Pixabay](https://pixabay.com/) and [Unsplash.](https://unsplash.com/)
+- Code Institute's "I Think Therefore I Blog" walkthrough project was referred throughout during development.
+- [Django Documentation](https://docs.djangoproject.com/en/4.2/) helped me in understanding the class based views and search functionality.
+- Ability to create and update recipe post while getting a success message displayed is achieved by following instructions in Stack Overflow article. [Create/Update Recipe](https://stackoverflow.com/questions/67366138/django-display-message-after-creating-a-post)
+- [Recipe Tutorial](https://www.youtube.com/watch?v=ZCPhzoK_bg4&list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy&index=3) helped me to get started with the files setup and base structure.
+- The code for deleting recipe is referred from this [Recipe Tutorial.](https://www.youtube.com/watch?v=nFa3lC105dM&list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy&index=13)
+- [Readme](https://github.com/Gareth-McGirr/Portfolio-Project-4-SizzleAndSteak/tree/main?tab=readme-ov-file#heroku-deployment) used for basic readme structure.
+- [Blog Tutorial](https://www.youtube.com/watch?v=B40bteAMM_M&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi) helped me in creating my models and understanding the CRUD functionality.
+- The PositiveInteger validation for cooking time, prep time and servings was referred from this [article.](https://stackoverflow.com/questions/2248617/0-value-in-django-positiveintegerfield)
+- The search functionality in django was studied from this [tutorial](https://learndjango.com/tutorials/django-search-tutorial) and modified according to the project requirements.
+
+## Acknowledgements
+
+- I would like to express my gratitude to my mentor, John, for his unwavering guidance, moral support, encouragement, and invaluable suggestions throughout the project. The project review sessions with my mentor, along with his solutions to my questions and the study materials he provided, were instrumental in the success of this project.
+- I am grateful to the Code Institute's Tutor support for solving all my doubts.
 
 
 
