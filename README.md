@@ -544,8 +544,74 @@ This page is accessible for just logged-in users
 ![signout-mobile-wireframe](documentation/images/wireframes/mobile-wireframes/signup-mobile-wireframe.png)
 
 
+### Database Design
+![Entity-Relationship-Diagram](documentation/images/database/database-design.png)
+
+- The database ER diagram was designed using [SmartDraw](https://www.smartdraw.com). The main Post model contains all the fields needed for the post to be complete. Additional fields (like category, nutritional value, meals type., etc) can be added to further enhance the website, but the values are not vital for the site to work and can be added later.
+- The diagram shows relationaships between the Post model, Comments Model, Like Model and django's allauth User model as follows:
+   1. User to Post: One-to-Many (1:M)
+       - Each user can create multiple posts.
+       - Each post is created by one user.
+   2. Post to Comment: One-to-Many (1:M)
+       - Each post can have multiple comments.
+       - Each comment is associated with one post.
+   3. User to Comment: One-to-Many (1:M)
+       - Each user can make multiple comments.
+       - Each comment is made by one user.
+
+- In summary, User can create multiple posts, and each post is associated with one user. Post can have multiple comments, and each comment is associated with one post. User can make multiple comments, and each comment is made by one user.
+- These relationships was implemented using ForeignKey fields in the models. The Post model have a ForeignKey field referencing the User model to represent the creator of the post, and the Comment model have ForeignKey fields referencing both the Post model and the User model to represent the post being commented on and the user making the comment, respectively.
+
+## The Surface Plane
+
+### Design
+
+The website uses clean, simple design with earthy colours and images that showcases the primary goal of the website. The aim here was to keep the site clutter-free so that user can have a smooth straight-forward navigation experience throughout without any chaos and confusion.
+
+#### Typography
+
+- The images in this project are sourced from [Pexels](https://www.pexels.com/) and [Pixabay](https://pixabay.com/). They were specifically selected to correlate with the main purpose of the website and to give user a imagery representation for the post content to increase impact of the design.
+
+## Technologies
+
+### Tools and Technologies
+ 
+- Visual Studio Code - used to develop the website
+- [GitHub](https://github.com/) to host the source code. 
+- Git to provide the version control to commit and push code to the repository.
+- HTML - used to create main static content of the website
+- Bootstrap - front end framework used
+- CSS- used for website styling
+- JavaScript- used to create dynamic content and make page interactive
+- Python - used as the main language to code the logic of the page
+- Django - framework used
+- Heroku - to deploy the app
+- ElephantSQL - A free cloud based PostgreSQL database system used for the application database.
+- [FontAwesome](https://fontawesome.com/v5/search) v5.15.4 for website icons.
+- [Favicon.io](https://favicon.io/) to create the website favicon.
+- [Cloudconvert](https://cloudconvert.com/jpg-to-webp) to convert .jpg images into .webp to reduce storage 
+    and enhance the website performance.
+- [TinyJPG](https://tinyjpg.com/) to optimise images for website.
+- Balsamiq to design the wireframes for the website.
+- Google Chrome's Lighthouse to test accessibility for desktop and mobile devices.
+- [W3C HTML Markup Validator](https://validator.w3.org/) to validate the HTML Code.
+- [W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/) to validate the CSS Code.
+- [jshint validator](https://jshint.com/) - used to check java script code for errors.
+- [SmartDraw](https://www.smartdraw.com/) used to generate the ER Diagram
+- [Am I Responsive](http://techsini.com/) to create the Mockup image in this README.
+- Code Institute's Gitpod Template to generate the workspace for the project.
+- BrowserStack for cross-browser testing.
 
 
+### Imports
+
+#### Python Packages
+- Summernote - used to provide an editor for user and admin for adding recipes instructions and ingredients.
+- TemplateView, CreateView, ListView, DeleteView, UpdateView - used to allow CRUD functionality
+- LoginRequiredMixin, UserPassesTestMixin - used to test and secure views from unauthorised access.
+- messages - used to add action messages to user on submission
+- HttpResponseRedirect, reverse : used to direct user to specific URL
+- get_object_or_404: used to get specific object from database or raise 404 exception if not found
 
 
 
