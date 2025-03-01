@@ -44,7 +44,6 @@
     <div class="row">
         <div class="col-12">
         <strong class="text-secondary">
-            {% if user.is_authenticated %}
             <div class="mb-3">
                 <button id="like-button-{{ post.id }}" class="btn btn-outline-primary like-button" data-post-id="{{ post.id }}">
                     <span class="like-text">Like</span>
@@ -63,9 +62,6 @@
                         </a>
                     </div>
                 {% endif %}
-        {% else %}
-            <a href="{% url 'login' %}" class="btn btn-outline-primary ps-3">Login to Like</a>
-        {% endif %}
         </strong>
         </div>
         <div class="col-12">
@@ -121,7 +117,7 @@
                         class="btn btn-primary btn-lg">Submit</button>
                     </form>
                 {% else %}
-                    <p>Log in to leave a comment</p>
+                    <p>Log in to leave a comment <a href="{% url 'account_login' %}" class="text-primary">sign-in</a></p>
                 {% endif %}
             </div>
         </div>

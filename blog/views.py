@@ -26,11 +26,6 @@ class IndexView(TemplateView):
     template_name = "blog/index.html"
 
 
-def custom_404(request, exception):
-    """Custom 404 error page."""
-    return render(request, 'blog/404.html', status=404)
-
-
 class PostList(generic.ListView):
     """View to list published blog posts with pagination."""
     queryset = Post.objects.filter(status=1).order_by("-created_on")
@@ -150,11 +145,11 @@ def comment_delete(request, slug, comment_id):
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-class AddPost(LoginRequiredMixin, CreateView):
+class AddPost(CreateView):
     """
-    Class based view to add/create recipes
+    Class based view to add/create posts
     Requires user to be logged in.
-    On successful form submission, redirects to the 'recipes' page.
+    On successful form submission, redirects to the 'posts list' page.
     If the form is valid, sets the author of the recipe
     to the current logged-in user.
     Displays a success message to the user.
@@ -175,8 +170,8 @@ class AddPost(LoginRequiredMixin, CreateView):
 class UpdatePost(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     """
     Class based view to edit/update recipe
-    Requires the user to be logged in and be the author of the recipe.
-    On successful form submission, redirects to the 'recipes' page.
+    Requires the user to be logged in and be the author of the post.
+    On successful form submission, redirects to the 'posts list' page.
     Handles the form submission when valid.
     Displays a success message to the user
     on successful update.
@@ -217,7 +212,7 @@ class DeletePost(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return super().delete(request, *args, **kwargs)
     
 
-class UserDrafts(ListView):
+class UserDrafts(LoginRequiredMixin, ListView):
     """
     Class based view to display user's draft recipes.
     Displays drafts created by the currently logged-in user.
@@ -229,7 +224,7 @@ class UserDrafts(ListView):
     template_name = "blog/my_drafts.html"
     model = Post
     context_object_name = "post_drafts"
-    paginate_by = 6
+    paginate_by = 4
 
     def get_queryset(self):
         return Post.objects.filter(author=self.request.user, status=0)
