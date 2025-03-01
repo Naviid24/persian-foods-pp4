@@ -1,3 +1,6 @@
+/* jshint esversion: 6 */
+
+
 const editButtons = document.getElementsByClassName("b-edit");
 const commentText = document.getElementById("id_body");
 const commentForm = document.getElementById("commentForm");

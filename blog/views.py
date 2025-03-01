@@ -12,10 +12,12 @@ from django.views.generic import (
     DeleteView
 )
 from django.db.models import Q
-from django.contrib.auth.mixins import( 
+
+from django.contrib.auth.mixins import (
     LoginRequiredMixin,
     UserPassesTestMixin
 )
+
 from django.urls import reverse_lazy
 
 
@@ -51,7 +53,10 @@ def post_detail(request, slug):
     comments = post.comments.all().order_by("created_on")
     comment_count = post.comments.filter(approved=True).count()
 
-    user_likes = Like.objects.filter(post=post, user=request.user).exists() if request.user.is_authenticated else False
+    if request.user.is_authenticated:
+        user_likes = Like.objects.filter(post=post, user=request.user).exists()
+    else:
+        user_likes = False
 
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
@@ -60,7 +65,10 @@ def post_detail(request, slug):
             comment.user = request.user
             comment.post = post
             comment.save()
-            messages.success(request, 'Comment submitted and awaiting approval')
+            messages.success(
+                request,
+                'Comment submitted and awaiting approval'
+                )
 
     # Reset comment form for next submission
     comment_form = CommentForm()
@@ -208,9 +216,11 @@ class DeletePost(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def delete(self, request, *args, **kwargs):
         post = self.get_object()
         messages.success(
-            request, f'Your post "{post.title}"has been deleted successfully!')
+            request,
+            f'Your post "{post.title}" has been deleted successfully!'
+            )
         return super().delete(request, *args, **kwargs)
-    
+
 
 class UserDrafts(LoginRequiredMixin, ListView):
     """
@@ -218,7 +228,7 @@ class UserDrafts(LoginRequiredMixin, ListView):
     Displays drafts created by the currently logged-in user.
     Only visible to the draft author.
     Returns a list of recipes with status of 'draft'.
-    Displays 6 recipes per page.
+    Displays 4 recipes per page.
     """
 
     template_name = "blog/my_drafts.html"
@@ -254,5 +264,3 @@ class PostSearchList(ListView):
         else:
             queryset = Post.objects.none()
         return queryset
-
-
