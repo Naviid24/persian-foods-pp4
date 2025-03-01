@@ -41,7 +41,7 @@
                         <li class="nav-item"><a class="nav-link {% if request.path == '/add_post/' %}active{% endif %}" aria-current="page" href="{% url 'add_post' %}">Add Post</a></li>
                         <li class="nav-item"><a class="nav-link {% if request.path == '/post_search/' %}active{% endif %}" aria-current="page" href="{% url 'post_search' %}">Search</a></li>
                         <li class="nav-item"><a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a></li>
-                        <li class="nav-item"><a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"href="{% url 'account_signup' %}">Register</a></li>
+                        <li class="nav-item"><a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page" href="{% url 'account_signup' %}">Register</a></li>
                         <li class="nav-item"><a class="nav-link {% if request.path == '/about/' %}active{% endif %}" aria-current="page" href="{% url 'about' %}">About</a></li>
                         {% if user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link {% if request.path == '/post_drafts/' %}active{% endif %}" aria-current="page" href="{% url 'post_drafts' %}">My Drafts</a></li>
@@ -85,10 +85,10 @@
 
                 </p>
                 <p class="m-0 text-center text-white">Follow us: 
-                <a href="https://github.com/Naviid24" id="github" target="_blank"rel="noopener" aria-label="Go to my GitHub repository!(Link opens in a new tab)">
+                <a href="https://github.com/Naviid24" id="github" target="_blank" rel="noopener" aria-label="Go to my GitHub repository!(Link opens in a new tab)">
                     <i class="fab fa-github social-links"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/navid-bahadorani-44a513299?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B%2BGVAhB6BRkKGGK3ShOExxQ%3D%3D" id="github" target="_blank"rel="noopener" aria-label="Go to my linkedin profile!(Link opens in a new tab)">
+                <a href="https://www.linkedin.com/in/navid-bahadorani-44a513299?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B%2BGVAhB6BRkKGGK3ShOExxQ%3D%3D" id="linkedin" target="_blank" rel="noopener" aria-label="Go to my linkedin profile!(Link opens in a new tab)">
                     <i class="fab fa-linkedin social-links"></i>
                 </a>
                 </p>
