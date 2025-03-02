@@ -960,22 +960,12 @@ Unit testing has many advantages:
 #### Post Form Test (blog App)
 - Checks that a blog post form is valid when all fields are correctly filled.
 - Ensures missing or incorrect fields trigger validation errors.
-
-<details>
-
-  <summary>Test Result</summary>
  
 ![test-pass-in-comment-form](documentation/images/automated-test/post-test-true.png)
 
- </detail>
- 
- <detail>
-
-  <summary>Test Result</summary>
 
 ![test-fail-in-comment-form](documentation/images/automated-test/post-test-false.png)
 
- </detail>
 
 ### View testing
 ### Instruction
@@ -983,24 +973,14 @@ Unit testing has many advantages:
  - Use of setUp method in my class to setup needed instance variables
 
 #### Blog View Test (Blog App)
-
-<details>
-
-  <summary>Blog Page </summary>
     
 ![blog-page-automate-test](documentation/images/automated-test/blog-view-test-pass.png)
 
-  </details>
 
 #### About View Test (About App)
-
-<details>
-
-  <summary>About Page </summary>
     
 ![about-page-automate-test](documentation/images/automated-test/about-view-test-pass.png)
 
-  </details>
 
 ## Bugs
  - Active attribute didn't work in the navbar because I used wrong way to add active attribute to the nav bar and after talk with tutor I replaced a new way and resolved it.
