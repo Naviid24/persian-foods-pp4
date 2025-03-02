@@ -931,7 +931,35 @@ Testing is performed on all forms in the website and for user authentication to 
 
 ### Unit Testing
 
-No unit testing performed at this stage.
+Unit testing has many advantages:
+ - Firstly it's quicker so I can run many hundreds of tests against my project in a short space of time.
+ - Secondly the tests are usually written by programmer as the project is being developed.
+ - Thirdly tests can be written for very specific cases.
+ - 
+### Instruction
+ - create a test_forms.py file in my about app directory and write a class to test my form.
+
+#### CollaborateForm Test (About App)
+ - Ensures that all required fields are validated correctly in collaborate form.
+
+![test-fail-in-collaborateform](documentation/images/automated-test/about-test-false.png)
+![test-pass-in-collaborateform](documentation/images/automated-test/about-test-true.png)
+
+#### Comment Form Test (blog App)
+- Tests if users can submit comments successfully.
+- Ensures invalid comments (e.g., empty comments) are rejected.
+
+![test-pass-in-comment-form](documentation/images/automated-test/comment-test-true.png)
+![test-fail-in-comment-form](documentation/images/automated-test/comment-test-false.png)
+![all-tests-pass-in-comment-form](documentation/images/automated-test/commentform-false-ok.png)
+
+#### Post Form Test (blog App)
+- Checks that a blog post form is valid when all fields are correctly filled.
+- Ensures missing or incorrect fields trigger validation errors.
+
+![test-pass-in-comment-form](documentation/images/automated-test/post-test-true.png)
+![test-fail-in-comment-form](documentation/images/automated-test/post-test-false.png)
+
 
 ## Bugs
  - Active attribute didn't work in the navbar because I used wrong way to add active attribute to the nav bar and after talk with tutor I replaced a new way and resolved it.
