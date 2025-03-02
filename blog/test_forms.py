@@ -6,8 +6,11 @@ from blog.models import Category
 
 class TestPostForm(TestCase):
     """
-    Class-based testing approach to test
-    our post form componnent by automatedt testing
+    Automated tests for the PostForm.
+
+    This class tests the validation of the PostForm, ensuring:
+    - The form is valid when all required fields are provided.
+    - The form correctly identifies missing or incorrect fields.
     """
 
     def test_post_form_is_valid(self):
@@ -44,6 +47,10 @@ class TestCommentForm(TestCase):
     """
     Class-based testing approach to test
     our comment componnent by automatedt testing 
+
+    This class tests the validation of the CommenttForm, ensuring:
+    - The comment is valid when all required fields are provided.
+    - The comment correctly identifies missing or incorrect fields.
     """
     def test_form_is_valid(self):
         comment_form = CommentForm({'body': 'This post is greate'})
