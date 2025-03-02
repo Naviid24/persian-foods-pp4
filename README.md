@@ -962,12 +962,12 @@ Unit testing has many advantages:
 - Ensures missing or incorrect fields trigger validation errors.
 
 <details>
- 
 ![test-pass-in-comment-form](documentation/images/automated-test/post-test-true.png)
+ </detail>
  
+ <detail>
 ![test-fail-in-comment-form](documentation/images/automated-test/post-test-false.png)
-
-<details>
+</detail>
 
 ### View testing
 ### Instruction
