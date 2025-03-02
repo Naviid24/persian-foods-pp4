@@ -16,7 +16,7 @@ class TestPostForm(TestCase):
     def test_post_form_is_valid(self):
         # Creates a test category
         category = Category.objects.create(title="Meat")
-        
+
         # Simulating an image upload
         fake_image = SimpleUploadedFile(
             "test.jpg",
@@ -30,7 +30,7 @@ class TestPostForm(TestCase):
             'featured_image': fake_image,
             'ingredients': 'herbs',
             'instructions': 'mixed spices',
-            'status': 1, 
+            'status': 1,
             'excerpt': 'Koobideh is one of the nice foods.',
             'slug': 'koobideh',
             'category': category.id,
@@ -46,7 +46,7 @@ class TestPostForm(TestCase):
 class TestCommentForm(TestCase):
     """
     Class-based testing approach to test
-    our comment componnent by automatedt testing 
+    our comment componnent by automatedt testing
 
     This class tests the validation of the CommenttForm, ensuring:
     - The comment is valid when all required fields are provided.
@@ -62,4 +62,3 @@ class TestCommentForm(TestCase):
     def test_form_is_invalid(self):
         comment_form = CommentForm({'body': ''})
         self.assertFalse(comment_form.is_valid(), msg="Form is valid")
-
