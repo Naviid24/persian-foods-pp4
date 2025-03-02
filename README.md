@@ -935,25 +935,31 @@ Unit testing has many advantages:
  - Firstly it's quicker so I can run many hundreds of tests against my project in a short space of time.
  - Secondly the tests are usually written by programmer as the project is being developed.
  - Thirdly tests can be written for very specific cases.
-### Form testing
+#### Form testing
 
-### Instruction
+##### Instruction
  - create a test_forms.py file in my about app directory and write a class to test my form.
 
-#### CollaborateForm Test (About App)
+##### CollaborateForm Test (About App)
  - Ensures that all required fields are validated correctly in collaborate form.
 
 ![test-fail-in-collaborateform](documentation/images/automated-test/about-test-false.png)
 
+-----
+
 ![test-pass-in-collaborateform](documentation/images/automated-test/about-test-true.png)
 
-#### Comment Form Test (blog App)
+##### Comment Form Test (blog App)
 - Tests if users can submit comments successfully.
 - Ensures invalid comments (e.g., empty comments) are rejected.
 
 ![test-pass-in-comment-form](documentation/images/automated-test/comment-test-true.png)
 
+-----
+
 ![test-fail-in-comment-form](documentation/images/automated-test/comment-test-false.png)
+
+-----
 
 ![all-tests-pass-in-comment-form](documentation/images/automated-test/commentform-false-ok.png)
 
@@ -963,21 +969,23 @@ Unit testing has many advantages:
  
 ![test-pass-in-comment-form](documentation/images/automated-test/post-test-true.png)
 
+-----
 
 ![test-fail-in-comment-form](documentation/images/automated-test/post-test-false.png)
 
 
-### View testing
-### Instruction
+#### View testing
+
+##### Instruction
  - create a test_views.py file in my about app directory and write a class to test my views.
  - Use of setUp method in my class to setup needed instance variables
 
-#### Blog View Test (Blog App)
+##### Blog View Test (Blog App)
     
 ![blog-page-automate-test](documentation/images/automated-test/blog-view-test-pass.png)
 
 
-#### About View Test (About App)
+##### About View Test (About App)
     
 ![about-page-automate-test](documentation/images/automated-test/about-view-test-pass.png)
 
