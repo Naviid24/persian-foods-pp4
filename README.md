@@ -1079,7 +1079,7 @@ For more details on how to clone the repository in order to create a copy for ow
 
 ## Acknowledgements
 
-- I would like to express my gratitude to my mentor, John, for his unwavering guidance, moral support, encouragement, and invaluable suggestions throughout the project. The project review sessions with my mentor, along with his solutions to my questions and the study materials he provided, were instrumental in the success of this project.
+- I would like to express my gratitude to my mentor, Can Sücüllü, for his unwavering guidance, moral support, encouragement, and invaluable suggestions throughout the project. The project review sessions with my mentor, along with his solutions to my questions and the study materials he provided, were instrumental in the success of this project.
 - I am grateful to the Code Institute's Tutor support for solving all my doubts.
 
 
