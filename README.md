@@ -545,7 +545,7 @@ This page is accessible for just logged-in users
 
 
 ### Database Design
-![Entity-Relationship-Diagram](documentation/images/database/database-design.png)
+![Entity-Relationship-Diagram](documentation/images/database/diagram.png)
 
 - The database ER diagram was designed using [SmartDraw](https://www.smartdraw.com). The main Post model contains all the fields needed for the post to be complete. Additional fields (like category, nutritional value, meals type., etc) can be added to further enhance the website, but the values are not vital for the site to work and can be added later.
 - The diagram shows relationaships between the Post model, Comments Model, Like Model and django's allauth User model as follows:
