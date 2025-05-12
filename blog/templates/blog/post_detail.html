@@ -48,7 +48,7 @@
                     <span class="like-text">Like</span>
                     <i id="like-icon-{{ post.id }}" class="fa {% if user_likes %}fa-thumbs-up text-primary{% else %}fa-thumbs-o-up{% endif %}"></i>
                     <span id="like-count-{{ post.id }}">{{ like_count }}</span>
-                </button class="mb-3">
+                </button>
                 <i class="far fa-comments ps-5"></i> {{ comment_count }}
                 {% if post.author == user %}
                     <div>
